@@ -1,0 +1,175 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body{
+  background:#0f172a;
+  color:white;
+}
+
+/* CONTAINER */
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:40px 20px;
+  text-align:center;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+}
+
+/* LOGO E BRAND */
+.hero-brand{
+  margin-bottom:30px;
+  text-align:center;
+}
+
+.hero-brand .logo{
+  width:80px;
+  height:auto;
+  margin-bottom:10px;
+}
+
+.hero-brand h2{
+  font-size:22px;
+  margin-bottom:5px;
+}
+
+.hero-brand .slogan{
+  color:#94a3b8;
+  font-size:16px;
+  margin-bottom:3px;
+}
+
+.hero-brand .launch-date{
+  color:#22c55e;
+  font-weight:bold;
+  font-size:14px;
+}
+
+/* HERO TEXT */
+.hero h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.subtitle{
+  color:#94a3b8;
+  margin-bottom:25px;
+  font-size:18px;
+}
+
+/* FORM */
+.form{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.form input{
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#1e293b;
+  color:white;
+  outline:none;
+}
+
+.form button{
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:#22c55e;
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.form button:hover{
+  background:#16a34a;
+}
+
+.urgency{
+  margin-top:15px;
+  font-size:13px;
+  color:#64748b;
+}
+
+/* BENEFITS */
+.benefits{
+  background:#020617;
+  padding:60px 20px;
+}
+
+.benefits h2{
+  margin-bottom:30px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(200px,1fr));
+  gap:15px;
+}
+
+.card{
+  background:#0f172a;
+  padding:20px;
+  border-radius:12px;
+  text-align:left;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-5px);
+  background:#1e293b;
+}
+
+.card h3{
+  margin-bottom:8px;
+}
+
+/* HOW */
+.how{
+  background:#0f172a;
+  padding:60px 20px;
+}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin-top:20px;
+  color:#94a3b8;
+}
+
+/* CTA */
+.cta{
+  background:#020617;
+  padding:60px 20px;
+}
+
+.cta-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 20px;
+  background:#22c55e;
+  color:white;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.cta-btn:hover{
+  background:#16a34a;
+}
