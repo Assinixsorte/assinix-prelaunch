@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Assinix — Ganhe dinheiro como Influencer</title>
-
 <link rel="icon" href="img/logo.jpg">
 
 <style>
@@ -14,90 +13,28 @@ html{scroll-behavior:smooth;}
 body{background:#0f172a;color:#fff;}
 
 .container{max-width:900px;margin:auto;padding:40px 20px;text-align:center;}
-
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
-
 h1{font-size:42px;margin-bottom:15px;}
 .slogan{color:#94a3b8;margin-bottom:5px;}
 .launch-date{color:#22c55e;font-weight:bold;margin-bottom:10px;}
 .subtitle{color:#94a3b8;margin-bottom:20px;}
-
-.badge{
-  background:#22c55e;
-  color:#000;
-  display:inline-block;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:12px;
-  margin-bottom:15px;
-}
-
+.badge{background:#22c55e;color:#000;display:inline-block;padding:6px 12px;border-radius:20px;font-size:12px;margin-bottom:15px;}
 .form{display:flex;flex-direction:column;gap:12px;}
-.form input{
-  padding:14px;border:none;border-radius:10px;background:#1e293b;color:white;
-}
-.form button{
-  padding:14px;border:none;border-radius:10px;background:#22c55e;color:white;font-weight:bold;cursor:pointer;
-  transition:0.3s;
-}
+.form input{padding:14px;border:none;border-radius:10px;background:#1e293b;color:white;}
+.form button{padding:14px;border:none;border-radius:10px;background:#22c55e;color:white;font-weight:bold;cursor:pointer;transition:0.3s;}
 .form button:hover{background:#16a34a;}
-
 .urgency{margin-top:10px;font-size:13px;color:#64748b;}
 .proof{color:#22c55e;margin-bottom:10px;}
-
 .section{padding:60px 20px;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;}
 .card{background:#1e293b;padding:20px;border-radius:12px;transition:.3s;}
 .card:hover{transform:translateY(-5px);}
-
-#thankYouSection{
-display:none;
-margin-top:30px;
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-animation:fadeIn .4s ease;
-}
-
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(10px);}
-to{opacity:1;transform:translateY(0);}
-}
-
-#joinWhatsappBtn, #whatsappForm button{
-padding:12px 20px;
-background:#22c55e;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
-
-#whatsappForm{
-display:none;
-flex-direction:column;
-gap:10px;
-margin-top:10px;
-}
-
-#whatsappForm input{
-padding:12px;
-border-radius:10px;
-border:none;
-background:#0f172a;
-color:white;
-}
-
-.cta-btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 20px;
-background:#22c55e;
-color:white;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-}
+#thankYouSection{display:none;margin-top:30px;background:#1e293b;padding:25px;border-radius:12px;animation:fadeIn .4s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+#joinWhatsappBtn,#whatsappForm button{padding:12px 20px;background:#22c55e;border:none;border-radius:10px;cursor:pointer;font-weight:bold;}
+#whatsappForm{display:none;flex-direction:column;gap:10px;margin-top:10px;}
+#whatsappForm input{padding:12px;border-radius:10px;border:none;background:#0f172a;color:white;}
+.cta-btn{display:inline-block;margin-top:20px;padding:14px 20px;background:#22c55e;color:white;border-radius:10px;text-decoration:none;font-weight:bold;}
 </style>
 </head>
 
@@ -105,26 +42,17 @@ font-weight:bold;
 
 <section class="hero">
 <div class="container">
-
 <div class="badge">🚀 Pré-lançamento Assinix</div>
-
 <h1>Transforme suas redes sociais em renda real</h1>
-
 <p class="slogan">Plataforma de campanhas pagas para influencers em Moçambique</p>
-
-<p class="subtitle">
-Receba dinheiro de marcas para divulgar produtos e crescer como influencer.
-</p>
-
+<p class="subtitle">Receba dinheiro de marcas para divulgar produtos e crescer como influencer.</p>
 <div class="proof">🔥 Vagas quase esgotando</div>
-
 <p class="launch-date">Lançamento: 01/06/2026</p>
 
 <form id="form" class="form">
 <input name="nome" placeholder="Seu nome" required>
 <input name="email" placeholder="Seu melhor email" required>
 <input name="social" placeholder="Seu @ (Instagram, TikTok...)" required>
-
 <button type="submit" id="submitBtn">Quero ganhar dinheiro 🚀</button>
 </form>
 
@@ -133,32 +61,25 @@ Receba dinheiro de marcas para divulgar produtos e crescer como influencer.
 <div id="thankYouSection">
 <h2>🎉 Você entrou na lista VIP!</h2>
 <p>Agora entre no grupo exclusivo para receber campanhas primeiro.</p>
-
 <button id="joinWhatsappBtn">Entrar no grupo VIP</button>
-
 <form id="whatsappForm">
 <input name="phone" placeholder="+258 8XX XXX XXX" required>
 <button type="submit">Continuar</button>
 </form>
-
 <p id="whatsappMessage"></p>
-
 </div>
-
 </div>
 </section>
 
 <section class="section">
 <div class="container">
 <h2>Por que entrar agora?</h2>
-
 <div class="grid">
 <div class="card">💰 Ganhe dinheiro com posts</div>
 <div class="card">🤝 Trabalhe com marcas reais</div>
 <div class="card">🔒 Pagamentos seguros (escrow)</div>
 <div class="card">📈 Cresça como influencer</div>
 </div>
-
 </div>
 </section>
 
@@ -179,122 +100,99 @@ Receba dinheiro de marcas para divulgar produtos e crescer como influencer.
 </div>
 </section>
 
-<script>
+<script type="module">
+// Importa Supabase
+import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+
+// Conecta ao Supabase
+const supabase = createClient(
+  'https://nvpocsqsiryoipuduuob.supabase.co', // Project URL
+  'sb_publishable_gJkL3ziJYBOKj-rGfcHO5A_PfaHMSR-' // Publishable Key
+)
+
+// Formulário principal
 const form = document.getElementById('form');
 const thankYouSection = document.getElementById('thankYouSection');
-const joinWhatsappBtn = document.getElementById('joinWhatsappBtn');
-const whatsappForm = document.getElementById('whatsappForm');
-const whatsappMessage = document.getElementById('whatsappMessage');
 const submitBtn = document.getElementById('submitBtn');
 
 let sending = false;
 
 function isValidEmail(email){
-return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
 form.addEventListener('submit', async (e) => {
-e.preventDefault();
+  e.preventDefault();
+  if(sending) return;
+  sending = true;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando...";
 
-if(sending) return;
-sending = true;
+  const nome = form.nome.value.trim();
+  const email = form.email.value.trim();
+  const social = form.social.value.trim();
 
-submitBtn.disabled = true;
-submitBtn.textContent = "Enviando...";
+  if(!nome || !email || !social){
+    alert('Preencha todos os campos!');
+    resetBtn();
+    return;
+  }
 
-const nome = form.nome.value.trim();
-const email = form.email.value.trim();
-const social = form.social.value.trim();
+  if(!isValidEmail(email)){
+    alert('Email inválido!');
+    resetBtn();
+    return;
+  }
 
-if(!nome || !email || !social){
-alert('Preencha todos os campos!');
-resetBtn();
-return;
-}
+  try {
+    const { data, error } = await supabase.from('usuarios').insert([{ nome, email, social }]);
+    if(error) throw error;
 
-if(!isValidEmail(email)){
-alert('Email inválido!');
-resetBtn();
-return;
-}
-
-try {
-
-const res = await fetch('/api/leads',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body: JSON.stringify({nome,email,social})
-});
-
-const data = await res.json();
-
-if(res.ok){
-form.style.display='none';
-thankYouSection.style.display='block';
-}else{
-alert(data.error || 'Erro ao enviar');
-resetBtn();
-}
-
-}catch(err){
-alert('Erro ao conectar ao servidor');
-resetBtn();
-}
-
+    form.style.display='none';
+    thankYouSection.style.display='block';
+  } catch(err) {
+    alert('Erro ao salvar no banco: ' + err.message);
+    resetBtn();
+  }
 });
 
 function resetBtn(){
-sending = false;
-submitBtn.disabled = false;
-submitBtn.textContent = "Quero ganhar dinheiro 🚀";
+  sending = false;
+  submitBtn.disabled = false;
+  submitBtn.textContent = "Quero ganhar dinheiro 🚀";
 }
 
-// WhatsApp fluxo
-joinWhatsappBtn.addEventListener('click',()=>{
-joinWhatsappBtn.style.display='none';
-whatsappForm.style.display='flex';
+// Formulário WhatsApp
+const joinWhatsappBtn = document.getElementById('joinWhatsappBtn');
+const whatsappForm = document.getElementById('whatsappForm');
+const whatsappMessage = document.getElementById('whatsappMessage');
+
+joinWhatsappBtn.addEventListener('click', () => {
+  joinWhatsappBtn.style.display='none';
+  whatsappForm.style.display='flex';
 });
 
-whatsappForm.addEventListener('submit', async(e)=>{
-e.preventDefault();
+whatsappForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const phone = whatsappForm.phone.value.trim();
+  if(phone.length < 9){
+    alert('Número inválido');
+    return;
+  }
 
-const phone = whatsappForm.phone.value.trim();
+  try {
+    const { data, error } = await supabase.from('usuarios').insert([{ phone }]);
+    if(error) throw error;
 
-if(phone.length < 9){
-alert('Número inválido');
-return;
-}
-
-try{
-
-const res = await fetch('/api/whatsapp',{
-method:'POST',
-headers:{'Content-Type':'application/json'},
-body: JSON.stringify({phone})
-});
-
-const data = await res.json();
-
-if(res.ok){
-whatsappForm.style.display='none';
-
-whatsappMessage.innerHTML = `
-✅ Acesso liberado com sucesso!<br><br>
-Você já pode entrar no grupo exclusivo e ser um dos primeiros a receber campanhas:<br><br>
-
-<a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss?mode=gi_t" target="_blank" style="color:#22c55e; font-weight:bold;">
-👉 Entrar no grupo VIP
-</a>
-`;
-
-}else{
-whatsappMessage.textContent = data.error;
-}
-
-}catch(err){
-whatsappMessage.textContent = "Erro ao enviar";
-}
-
+    whatsappForm.style.display='none';
+    whatsappMessage.innerHTML = `
+      ✅ Acesso liberado com sucesso!<br>
+      <a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss?mode=gi_t" target="_blank">
+      👉 Entrar no grupo VIP</a>
+    `;
+  } catch(err) {
+    whatsappMessage.textContent = "Erro ao enviar: " + err.message;
+  }
 });
 </script>
 
