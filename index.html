@@ -4,353 +4,925 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Assinix — Ganhe dinheiro como Influencer</title>
-<link rel="icon" href="logo.jpg" type="image/jpeg">
+<title>Assinix — Ganhe dinheiro como influencer</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
-html{scroll-behavior:smooth;}
-body{background:#0f172a;color:#fff;}
 
-/* ANIMAÇÕES */
-.fade-up{
-opacity:0;
-transform:translateY(30px);
-animation:fadeUp 1s ease forwards;
+body{
+background:linear-gradient(180deg,#020617,#0f172a);
+color:#fff;
 }
 
-.delay-1{animation-delay:0.2s;}
-.delay-2{animation-delay:0.4s;}
-.delay-3{animation-delay:0.6s;}
-.delay-4{animation-delay:0.8s;}
+/* HERO */
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+background:url('fallback.jpg') center/cover no-repeat;
+}
+
+.bg-video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+top:0;
+left:0;
+z-index:-2;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:linear-gradient(180deg,rgba(0,0,0,0.7),rgba(2,6,23,0.95));
+z-index:-1;
+}
+
+.container{max-width:1100px;margin:auto;padding:60px 20px;}
+
+h1{font-size:52px;margin-bottom:15px;}
+h2{font-size:34px;margin-bottom:20px;}
+p{color:#94a3b8;}
+
+.btn{
+padding:14px 24px;
+background:#22c55e;
+border:none;
+border-radius:10px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+margin-top:20px;
+transition:0.3s;
+}
+
+.btn:hover{
+background:#16a34a;
+transform:scale(1.05);
+}
+
+/* SECTIONS */
+.section{padding:90px 20px;}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.glass{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+border-radius:16px;
+padding:25px;
+transition:.3s;
+}
+
+.glass:hover{
+transform:translateY(-6px);
+}
+
+/* SOCIAL PROOF */
+.stats{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+font-size:22px;
+font-weight:bold;
+}
+
+/* FORM */
+input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:10px;
+background:#1e293b;
+color:white;
+margin-bottom:10px;
+}
+
+@media(max-width:768px){
+h1{font-size:34px;}
+}
+
+
+
+
+
+
+
+
+
+@keyframes spin{
+to{transform:rotate(360deg);}
+}
 
 @keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(20px);
+}
 to{
 opacity:1;
 transform:translateY(0);
 }
 }
 
-.container{max-width:900px;margin:auto;padding:40px 20px;text-align:center;}
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;}
 
-h1{font-size:42px;margin-bottom:15px;}
-.slogan{color:#94a3b8;margin-bottom:5px;}
-.launch-date{color:#22c55e;font-weight:bold;margin-bottom:10px;}
-.subtitle{color:#94a3b8;margin-bottom:20px;}
 
-.badge{
-background:#22c55e;
-color:#000;
-padding:6px 12px;
-border-radius:20px;
-font-size:12px;
-margin-bottom:15px;
-display:inline-block;
+
+
+
+
+
+
+
+
+
+/* =========================
+   BENEFITS SECTION (ASSINIX)
+========================= */
+
+.benefits-grid{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:80px;
+  align-items:center;
 }
 
-.form{display:flex;flex-direction:column;gap:12px;}
-
-.form input{
-padding:14px;
-border:none;
-border-radius:10px;
-background:#1e293b;
-color:white;
+/* TEXTO */
+.benefits-text .item{
+  margin-bottom:25px;
 }
 
-.form button{
-padding:14px;
-border:none;
-border-radius:10px;
-background:#22c55e;
-color:white;
-font-weight:bold;
-cursor:pointer;
-transition:0.3s;
+.benefits-text h3{
+  font-size:20px;
+  margin-bottom:8px;
+  font-weight:600;
 }
 
-.form button:hover{
-transform:scale(1.03);
-background:#16a34a;
+.benefits-text p{
+  color:#94a3b8;
+  line-height:1.7;
+  font-size:15px;
 }
 
-.urgency{margin-top:10px;font-size:13px;color:#64748b;}
-
-.proof{
-color:#22c55e;
-margin-bottom:10px;
-font-weight:500;
+/* LINHAS DIVISÓRIAS */
+.divider{
+  border-top:1px solid rgba(255,255,255,0.08);
+  margin:22px 0;
 }
 
-.section{padding:60px 20px;}
+/* =========================
+   IMAGEM
+========================= */
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:15px;
+.benefits-image{
+  position:relative;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
 }
 
-.card{
-background:#1e293b;
-padding:20px;
-border-radius:12px;
-transition:.3s;
+/* GLOW VERDE (EFEITO MARCA) */
+.benefits-image::before{
+  content:'';
+  position:absolute;
+  width:350px;
+  height:350px;
+  right:40px;
+  background: radial-gradient(circle, rgba(34,197,94,0.18), transparent 70%);
+  filter: blur(80px);
+  z-index:0;
 }
 
-.card:hover{
-transform:translateY(-5px) scale(1.02);
+/* IMAGEM */
+.benefits-image img{
+  position:relative;
+  z-index:2;
+
+  width:120%;
+  max-width:none;
+  height:auto;
+
+  /* remove "caixa" */
+  background:transparent;
+
+  /* integração com fundo escuro */
+  mix-blend-mode: lighten;
+
+  /* profundidade */
+  filter: drop-shadow(0 25px 60px rgba(0,0,0,0.7));
+
+  /* ajuste fino */
+  transform: scale(1.15) translateX(20px);
 }
 
-#thankYouSection{
-display:none;
-margin-top:30px;
-background:#1e293b;
-padding:25px;
-border-radius:12px;
-animation:fadeUp 0.8s ease;
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media(max-width:900px){
+
+  .benefits-grid{
+    grid-template-columns:1fr;
+    gap:50px;
+  }
+
+  .benefits-image{
+    justify-content:center;
+    order:-1;
+  }
+
+  .benefits-image img{
+    width:100%;
+    max-width:380px;
+    transform:none;
+  }
+
+  .benefits-image::before{
+    right:auto;
+    left:50%;
+    transform:translateX(-50%);
+  }
+
 }
 
-#joinWhatsappBtn,#whatsappForm button{
-padding:12px;
-background:#22c55e;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-}
+@media(max-width:900px){
 
-#whatsappForm{
-display:none;
-flex-direction:column;
-gap:10px;
-margin-top:10px;
-}
+  .benefits-image{
+    display:none;
+  }
 
-#whatsappForm input{
-padding:12px;
-border-radius:10px;
-border:none;
-background:#0f172a;
-color:white;
-}
+  .benefits-grid{
+    grid-template-columns:1fr;
+  }
 
-.cta-btn{
-display:inline-block;
-margin-top:20px;
-padding:14px 20px;
-background:#22c55e;
-color:white;
-border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-transition:0.3s;
-}
-
-.cta-btn:hover{
-transform:scale(1.05);
-background:#16a34a;
-}
-
-/* RESPONSIVO */
-@media(max-width:768px){
-h1{font-size:30px;}
-.container{padding:20px;}
-}
-
-@media(max-width:480px){
-h1{font-size:24px;}
-.form input,.form button{padding:12px;}
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
+
+<video autoplay muted loop playsinline preload="auto" class="bg-video">
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
 <div class="container">
 
-<div class="badge fade-up">🚀 Pré-lançamento Assinix</div>
+<h1>Ganhe dinheiro como influencer</h1>
 
-<h1 class="fade-up delay-1">Transforme o seu conteúdo em oportunidades com marcas</h1>
+<p>Marcas pagam pelo seu conteúdo. A Assinix conecta você a essas oportunidades.</p>
 
-<p class="slogan fade-up delay-2">
-Plataforma de campanhas pagas para influencers em Moçambique
-</p>
+<button class="btn" onclick="scrollToForm()">Entrar na lista VIP</button>
 
-<p class="subtitle fade-up delay-2">
-Receba propostas de marcas e desenvolva o seu perfil de forma profissional.
-</p>
-
-<div class="proof fade-up delay-3">
-🔒 Plataforma segura • 💼 Parcerias reais
 </div>
 
-<p class="launch-date fade-up delay-3">
-Lançamento: 23/06/2026
+</section>
+
+<!-- SOCIAL PROOF -->
+<section class="section">
+<div class="container">
+
+<h2>Já estamos a crescer 🚀</h2>
+
+<div class="stats">
+<div class="stat">+47 influencers</div>
+<div class="stat">+33 marcas interessadas</div>
+<div class="stat">Lançamento em breve</div>
+</div>
+
+</div>
+</section>
+
+<!-- SOBRE -->
+<section class="section">
+<div class="container">
+
+<h2>O que é a Assinix?</h2>
+
+<p style="max-width:800px;margin:auto;line-height:1.8;color:#94a3b8;">
+A Assinix é uma plataforma que conecta influencers e marcas, funcionando como um ambiente centralizado onde campanhas são criadas, propostas são enviadas e parcerias são geridas de forma profissional e segura.
+<br><br>
+Na plataforma, marcas publicam oportunidades para promover produtos ou serviços, e influencers podem analisar essas propostas, enviar contrapropostas e negociar diretamente os termos da colaboração.
+<br><br>
+Quando uma proposta é aceita, o pagamento é realizado pela marca e fica retido em um sistema de escrow, garantindo segurança para ambas as partes. O valor só é liberado após a entrega do trabalho acordado.
+<br><br>
+Além disso, a Assinix disponibiliza um dashboard completo com métricas, histórico de campanhas e acompanhamento de desempenho, permitindo que influencers gerenciem suas atividades e cresçam de forma estruturada e profissional.
 </p>
 
-<form id="form" class="form fade-up delay-4">
+</div>
+</section>
+
+<!-- BENEFÍCIOS (VERSÃO EDITORIAL COM IMAGEM) -->
+<section class="section">
+<div class="container">
+
+<h2 style="text-align:center;">Por que escolher a Assinix</h2>
+
+<p style="max-width:800px;margin:30px auto 60px auto;line-height:1.9;color:#94a3b8;text-align:center;">
+A Assinix foi criada para redefinir a forma como influencers e marcas colaboram. Em vez de processos fragmentados e pouco transparentes, oferecemos um fluxo único, estruturado e orientado à confiança.
+</p>
+
+<!-- GRID PRINCIPAL -->
+<div class="benefits-grid">
+
+  <!-- TEXTO -->
+  <div class="benefits-text">
+
+    <div class="item">
+      <h3>Oportunidades diretas</h3>
+      <p>
+      Campanhas são publicadas diretamente por marcas, permitindo acesso a oportunidades reais sem intermediários.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="item">
+      <h3>Negociação estruturada</h3>
+      <p>
+      Propostas claras, organizadas e com total controle antes do início da colaboração.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="item">
+      <h3>Segurança nas transações</h3>
+      <p>
+      Sistema de escrow que protege pagamentos até a entrega ser validada.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="item">
+      <h3>Gestão centralizada</h3>
+      <p>
+      Tudo organizado num único dashboard: campanhas, métricas e mensagens.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="item">
+      <h3>Escala e crescimento</h3>
+      <p>
+      Estrutura pensada para transformar conteúdo em rendimento consistente.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- IMAGEM -->
+  <div class="benefits-image">
+    <img src="homem-apontando.png" alt="Influencer apontando">
+  </div>
+
+</div>
+
+</div>
+</section>
+
+<!-- COMO FUNCIONA (TIMELINE FUTURISTA) -->
+<section class="section">
+<div class="container">
+
+<h2>Como funciona</h2>
+
+<p style="text-align:center;max-width:700px;margin:auto;color:#94a3b8;line-height:1.8;">
+Um fluxo simples, conectado e seguro para transformar oportunidades em rendimento real.
+</p>
+
+<div style="position:relative;max-width:750px;margin:70px auto;padding-left:60px;">
+
+<!-- LINHA PRINCIPAL -->
+<div style="
+position:absolute;
+left:28px;
+top:0;
+bottom:0;
+width:2px;
+background:linear-gradient(180deg,rgba(34,197,94,0.2),rgba(34,197,94,0.9),rgba(34,197,94,0.2));
+box-shadow:0 0 20px rgba(34,197,94,0.3);
+"></div>
+
+<!-- STEP TEMPLATE -->
+<style>
+.step{
+margin-bottom:50px;
+position:relative;
+}
+
+.dot{
+position:absolute;
+left:-42px;
+top:5px;
+width:18px;
+height:18px;
+border-radius:50%;
+background:#22c55e;
+box-shadow:0 0 0 6px rgba(34,197,94,0.15), 0 0 18px rgba(34,197,94,0.6);
+}
+
+.step h3{
+font-size:20px;
+margin-bottom:6px;
+}
+
+.step p{
+color:#94a3b8;
+line-height:1.6;
+}
+</style>
+
+<!-- STEP 1 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Criar perfil</h3>
+<p>Registe-se e apresente o seu perfil como influencer.</p>
+</div>
+
+<!-- STEP 2 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Explorar oportunidades</h3>
+<p>Descubra campanhas publicadas por marcas.</p>
+</div>
+
+<!-- STEP 3 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Enviar proposta</h3>
+<p>Negocie valores e condições diretamente com a marca.</p>
+</div>
+
+<!-- STEP 4 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Aceitação</h3>
+<p>A marca aprova a proposta e inicia a campanha.</p>
+</div>
+
+<!-- STEP 5 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Entrega</h3>
+<p>Produza e entregue o conteúdo acordado.</p>
+</div>
+
+<!-- STEP 6 -->
+<div class="step">
+<div class="dot"></div>
+<h3>Pagamento</h3>
+<p>Receba via escrow com liberação após confirmação.</p>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- PAGAMENTOS (VERSÃO PREMIUM) -->
+<section class="section">
+<div class="container">
+
+<h2>Pagamentos e liquidação</h2>
+
+<p style="max-width:750px;margin:auto;line-height:1.8;color:#94a3b8;text-align:center;">
+A Assinix utiliza um sistema de pagamentos estruturado para garantir segurança, transparência e confiança em todas as transações entre marcas e influencers.
+</p>
+
+<div class="grid" style="margin-top:50px;">
+
+<!-- BLOCO 1 -->
+<div class="glass">
+<h3>Métodos suportados</h3>
+<p style="margin-top:10px;">
+Suporte a múltiplos meios de pagamento, incluindo cartões internacionais e métodos locais, garantindo acessibilidade global e adaptação a diferentes mercados.
+</p>
+
+<p style="margin-top:15px;color:#64748b;font-size:14px;">
+Inclui cartões Visa / Mastercard e outros métodos compatíveis com processamento seguro.
+</p>
+</div>
+
+<!-- BLOCO 2 -->
+<div class="glass">
+<h3>Carteiras digitais</h3>
+<p style="margin-top:10px;">
+Integração com carteiras móveis amplamente utilizadas, permitindo pagamentos rápidos e convenientes diretamente a partir de dispositivos móveis.
+</p>
+
+<p style="margin-top:15px;color:#64748b;font-size:14px;">
+Compatível com soluções como M-Pesa, e-Mola e outras carteiras regionais.
+</p>
+</div>
+
+<!-- BLOCO 3 -->
+<div class="glass">
+<h3>Transferências bancárias</h3>
+<p style="margin-top:10px;">
+Opção de pagamentos via transferência bancária tradicional, adequada para transações de maior volume ou operações corporativas.
+</p>
+
+<p style="margin-top:15px;color:#64748b;font-size:14px;">
+Integração com instituições bancárias para processamento direto e seguro.
+</p>
+</div>
+
+<!-- BLOCO 4 -->
+<div class="glass">
+<h3>Sistema de escrow</h3>
+<p style="margin-top:10px;">
+Os pagamentos são mantidos em custódia segura até que o trabalho seja concluído e aprovado pelas partes envolvidas.
+</p>
+
+<p style="margin-top:15px;color:#64748b;font-size:14px;">
+Isso reduz riscos, aumenta a confiança e garante que ambas as partes cumpram os termos acordados.
+</p>
+</div>
+
+</div>
+
+<!-- FLUXO VISUAL SIMPLES -->
+<div style="margin-top:70px;text-align:center;">
+
+<h3 style="margin-bottom:20px;">Fluxo de pagamento</h3>
+
+<div style="
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:10px;
+color:#94a3b8;
+font-size:14px;
+">
+
+<span>Pagamento da marca</span>
+<span style="color:#22c55e;">→</span>
+<span>Custódia (escrow)</span>
+<span style="color:#22c55e;">→</span>
+<span>Entrega validada</span>
+<span style="color:#22c55e;">→</span>
+<span>Liberação do pagamento</span>
+
+</div>
+
+</div>
+
+</div>
+<section class="section" id="formSection">
+<div class="container">
+
+<h2>Garanta sua vaga</h2>
+
+<!-- FORM -->
+<form id="form">
 <input name="nome" placeholder="Seu nome" required>
-<input name="email" placeholder="Seu melhor email" required>
-<input name="social" placeholder="Seu @ (Instagram, TikTok...)" required>
+<input name="email" placeholder="Seu email" required>
+<input name="social" placeholder="@Instagram ou TikTok" required>
 
-<button type="submit" id="submitBtn">Quero participar 🚀</button>
+<button class="btn" type="submit" id="submitBtn">Quero participar</button>
 </form>
 
-<p class="urgency fade-up delay-4">⚡ Acesso limitado aos primeiros 100 influencers</p>
+<!-- LOADING -->
+<div id="loading" style="display:none;margin-top:30px;text-align:center;">
+<div style="width:40px;height:40px;border:3px solid rgba(255,255,255,0.2);border-top:3px solid #22c55e;border-radius:50%;margin:auto;animation:spin 1s linear infinite;"></div>
+<p style="margin-top:15px;color:#94a3b8;">Processando seu pedido...</p>
+</div>
 
-<div id="thankYouSection">
-<h2>🎉 Acesso reservado com sucesso</h2>
+<!-- SUCCESS -->
+<div id="success" style="display:none;margin-top:30px;text-align:center;animation:fadeUp 0.6s ease;">
 
-<p>
-O seu acesso antecipado foi reservado com sucesso.<br><br>
-Agora pode entrar no grupo exclusivo onde partilhamos as primeiras oportunidades e novidades.
+<h3 id="successTitle"></h3>
+
+<p style="margin-top:15px;color:#94a3b8;line-height:1.8;">
+O seu acesso foi reservado com sucesso.<br><br>
+Caso queira maximizar as oportunidades, pode entrar no grupo VIP onde terá acesso antecipado a oportunidades, informações e propostas exclusivas.
 </p>
 
-<button id="joinWhatsappBtn">Entrar no grupo VIP</button>
+<!-- BOTÃO VIP -->
+<button class="btn" onclick="showPhoneInput()">Entrar no grupo VIP</button>
 
-<form id="whatsappForm">
-<input name="phone" placeholder="845123456" required>
-<button type="submit">Continuar</button>
-</form>
+<!-- INPUT TELEFONE -->
+<div id="phoneBox" style="display:none;margin-top:25px;">
 
-<p id="whatsappMessage"></p>
+<input 
+id="phoneInput" 
+placeholder="+258 8XX XXX XXX" 
+style="width:100%;padding:12px;border-radius:10px;border:1px solid #2a2a2a;background:#0b0f14;color:#fff;"
+>
+
+<button class="btn" onclick="sendPhoneAndEmail()" style="margin-top:15px;">
+Enviar e receber link
+</button>
+
+<p id="phoneMsg" style="margin-top:15px;color:#94a3b8;"></p>
+
+</div>
 
 </div>
 
 </div>
 </section>
 
-<section class="section">
+<!-- FOOTER -->
+<footer style="margin-top:100px;padding:60px 20px;border-top:1px solid rgba(255,255,255,0.08);">
+
 <div class="container">
-<h2 class="fade-up">Por que entrar agora?</h2>
 
-<div class="grid">
-<div class="card fade-up">💰 Campanhas pagas com marcas</div>
-<div class="card fade-up delay-1">🤝 Parcerias reais e verificadas</div>
-<div class="card fade-up delay-2">🔒 Sistema seguro de pagamentos</div>
-<div class="card fade-up delay-3">📈 Crescimento profissional</div>
+<div class="grid" style="align-items:start;">
+
+<!-- LOGO / DESCRIÇÃO -->
+<div>
+<h3 style="font-size:22px;margin-bottom:10px;">Assinix</h3>
+<p style="color:#94a3b8;line-height:1.7;max-width:300px;">
+Plataforma que conecta influencers e marcas através de um sistema seguro, transparente e orientado a resultados.
+</p>
+</div>
+
+<!-- LINKS -->
+<div>
+<h4 style="margin-bottom:10px;">Plataforma</h4>
+<p style="color:#94a3b8;line-height:2;">
+Início<br>
+Como funciona<br>
+Benefícios<br>
+Pagamentos
+</p>
+</div>
+
+<!-- CONTACTO -->
+<div>
+<h4 style="margin-bottom:10px;">Contacto</h4>
+<p style="color:#94a3b8;line-height:2;">
+Email: aassinix@gmail.com
+<br>
+Telefone: +258 835 213 391<br>
+</p>
+</div>
+
+<!-- LOCALIZAÇÃO -->
+<div>
+<h4 style="margin-bottom:10px;">Localização</h4>
+<p style="color:#94a3b8;line-height:2;">
+Maputo, Moçambique<br>
+Serviço disponível globalmente
+</p>
 </div>
 
 </div>
-</section>
 
-<section class="section">
-<div class="container">
-<h2 class="fade-up">Como funciona</h2>
-<p class="fade-up delay-1">1. Entra na lista de acesso antecipado</p>
-<p class="fade-up delay-2">2. Recebe acesso exclusivo antes do lançamento</p>
-<p class="fade-up delay-3">3. Começa a receber oportunidades de marcas</p>
+<!-- LINHA INFERIOR -->
+<div style="margin-top:40px;border-top:1px solid rgba(255,255,255,0.08);padding-top:20px;text-align:center;color:#64748b;font-size:14px;">
+
+© 2026 Assinix. Todos os direitos reservados.
+
 </div>
-</section>
 
-<section class="section">
-<div class="container">
-<h2 class="fade-up">Pronto para começar?</h2>
-<p class="fade-up delay-1">Garanta sua vaga antes que as inscrições encerrem.</p>
-<a href="#form" class="cta-btn fade-up delay-2">Entrar agora</a>
 </div>
-</section>
 
-<script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
-const supabase = createClient(
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+/* =========================
+   INIT
+========================= */
+
+const supabase = window.supabase.createClient(
   'https://nvpocsqsiryoipuduuob.supabase.co',
   'sb_publishable_gJkL3ziJYBOKj-rGfcHO5A_PfaHMSR-'
-)
+);
+
+emailjs.init("ZeGTJxCDd1FU6Z1C5");
+
+/* =========================
+   ELEMENTOS
+========================= */
 
 const form = document.getElementById('form');
-const thankYouSection = document.getElementById('thankYouSection');
-const submitBtn = document.getElementById('submitBtn');
+const loading = document.getElementById('loading');
+const success = document.getElementById('success');
+const successTitle = document.getElementById('successTitle');
 
-function isValidEmail(email){
-return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+let currentUserEmail = localStorage.getItem("userEmail");
+
+/* =========================
+   🔥 NOVO: SCROLL DO HERO
+========================= */
+
+window.scrollToForm = function(){
+  const formSection = document.getElementById('formSection');
+
+  if(formSection){
+    formSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
 }
+
+/* =========================
+   HELPERS
+========================= */
+
+function formatMozPhone(phone){
+
+  phone = phone.replace(/\s+/g, '');
+
+  if(phone.startsWith('+258')){
+    phone = phone.replace('+258','');
+  }
+
+  if(!/^8\d{8}$/.test(phone)){
+    return null;
+  }
+
+  return '+258' + phone;
+}
+
+/* =========================
+   FORM SUBMIT
+========================= */
 
 form.addEventListener('submit', async (e)=>{
-e.preventDefault();
+  e.preventDefault();
 
-const nome = form.nome.value.trim();
-const email = form.email.value.trim();
-const social = form.social.value.trim();
+  console.log("FORM SUBMIT DISPARADO ✅");
 
-if(nome.length < 4){
-alert('Nome deve ter pelo menos 4 caracteres');
-return;
-}
+  const nome = form.nome.value.trim();
+  const email = form.email.value.trim();
+  const social = form.social.value.trim();
 
-if(!isValidEmail(email)){
-alert('Email inválido');
-return;
-}
+  if(nome.length < 4){
+    alert('Nome inválido');
+    return;
+  }
 
-if(!social){
-alert('Informe seu @');
-return;
-}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    alert('Email inválido');
+    return;
+  }
 
-submitBtn.disabled = true;
-submitBtn.textContent = "Enviando...";
+  if(!social){
+    alert('Informe seu @');
+    return;
+  }
 
-try{
-const { error } = await supabase
-.from('usuarios')
-.insert([{ nome, email, social }]);
+  form.style.display = 'none';
+  loading.style.display = 'block';
 
-if(error) throw error;
+  try{
 
-form.style.display='none';
-thankYouSection.style.display='block';
+    const { error } = await supabase
+      .from('usuarios')
+      .insert([{ nome, email, social }]);
 
-}catch(err){
-alert('Erro: '+err.message);
-submitBtn.disabled = false;
-submitBtn.textContent = "Quero participar 🚀";
-}
+    console.log("SUPABASE ERROR:", error);
+
+    if(error) throw error;
+
+    currentUserEmail = email;
+    localStorage.setItem("userEmail", email);
+
+    setTimeout(()=>{
+      loading.style.display = 'none';
+      success.style.display = 'block';
+      successTitle.textContent = `Parabéns, ${nome}! Acesso reservado.`;
+    }, 1200);
+
+  }catch(err){
+    console.error("ERRO FORM:", err);
+
+    loading.style.display = 'none';
+    form.style.display = 'block';
+
+    alert('Erro ao enviar: ' + err.message);
+  }
 });
 
-// WHATSAPP
-const joinWhatsappBtn = document.getElementById('joinWhatsappBtn');
-const whatsappForm = document.getElementById('whatsappForm');
-const whatsappMessage = document.getElementById('whatsappMessage');
+/* =========================
+   SHOW PHONE INPUT + SCROLL
+========================= */
 
-joinWhatsappBtn.addEventListener('click', ()=>{
-joinWhatsappBtn.style.display='none';
-whatsappForm.style.display='flex';
-});
+window.showPhoneInput = function(){
 
-whatsappForm.addEventListener('submit', async (e)=>{
-e.preventDefault();
+  const box = document.getElementById('phoneBox');
+  box.style.display = 'block';
 
-const phone = whatsappForm.phone.value.trim();
+  const formSection = document.getElementById('formSection');
 
-if(!/^\d{9}$/.test(phone)){
-alert('Número deve ter 9 dígitos');
-return;
+  if(formSection){
+    formSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+  }
+
+  setTimeout(()=>{
+    const phoneInput = document.getElementById('phoneInput');
+    if(phoneInput) phoneInput.focus();
+  }, 500);
 }
 
-try{
-const { error } = await supabase
-.from('whatsapp_leads')
-.insert([{ phone }]);
+/* =========================
+   PHONE FLOW
+========================= */
 
-if(error) throw error;
+window.sendPhoneAndEmail = async function(){
 
-whatsappForm.style.display='none';
+  const rawPhone = document.getElementById('phoneInput').value.trim();
+  const phoneMsg = document.getElementById('phoneMsg');
 
-whatsappMessage.innerHTML = `
-✅ Acesso confirmado!<br><br>
-<a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss?mode=gi_t" target="_blank">
-👉 Entrar no grupo VIP</a>
-`;
+  console.log("RAW PHONE:", rawPhone);
 
-}catch(err){
-whatsappMessage.textContent = "Erro ao enviar: "+err.message;
+  const formattedPhone = formatMozPhone(rawPhone);
+
+  console.log("FORMATTED PHONE:", formattedPhone);
+
+  if(!formattedPhone){
+    phoneMsg.textContent = "Número inválido. Use 845123456";
+    return;
+  }
+
+  phoneMsg.textContent = "Processando...";
+
+  try{
+
+    const emailToUse = currentUserEmail || localStorage.getItem("userEmail") || form.email.value;
+    const nomeToUse = form.nome.value;
+
+    console.log("EMAIL FINAL:", emailToUse);
+    console.log("NOME:", nomeToUse);
+
+    if(!emailToUse){
+      throw new Error("Email não encontrado");
+    }
+
+    const { error: dbError } = await supabase
+      .from('whatsapp_leads')
+      .insert([{ phone: formattedPhone }]);
+
+    console.log("SUPABASE LEAD ERROR:", dbError);
+
+    if(dbError) throw dbError;
+
+    console.log("ENVIANDO EMAIL...");
+
+    const response = await emailjs.send(
+      "service_j1qc843",
+      "template_6n96dck",
+      {
+        name: nomeToUse,
+        email: emailToUse,
+        telefone: formattedPhone,
+        title: "Acesso VIP Assinix"
+      }
+    );
+
+    console.log("EMAILJS RESPONSE:", response);
+
+    phoneMsg.innerHTML = `
+      ✔ O link foi enviado para:<br><br>
+      <strong>${emailToUse}</strong>
+    `;
+
+  }catch(err){
+    console.error("ERRO COMPLETO:", err);
+    phoneMsg.textContent = "Erro ao processar. Tente novamente.";
+  }
+
 }
+
 });
 </script>
-
 </body>
 </html>
