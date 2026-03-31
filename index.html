@@ -564,7 +564,10 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
   <div class="benefits-text">
 
     <div class="item">
-      <h3>Oportunidades diretas</h3>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/handshake.png" width="22"/>
+        <h3 style="margin:0;">Oportunidades diretas</h3>
+      </div>
       <p>
       Campanhas são publicadas diretamente por marcas, permitindo acesso a oportunidades reais sem intermediários.
       </p>
@@ -573,7 +576,10 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
     <div class="divider"></div>
 
     <div class="item">
-      <h3>Negociação estruturada</h3>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/approval.png" width="22"/>
+        <h3 style="margin:0;">Negociação estruturada</h3>
+      </div>
       <p>
       Propostas claras, organizadas e com total controle antes do início da colaboração.
       </p>
@@ -582,7 +588,10 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
     <div class="divider"></div>
 
     <div class="item">
-      <h3>Segurança nas transações</h3>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/lock--v1.png" width="22"/>
+        <h3 style="margin:0;">Segurança nas transações</h3>
+      </div>
       <p>
       Sistema de escrow que protege pagamentos até a entrega ser validada.
       </p>
@@ -591,7 +600,10 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
     <div class="divider"></div>
 
     <div class="item">
-      <h3>Gestão centralizada</h3>
+      <div style="display:flex;align-items:center;gap:10px;">
+<img src="https://img.icons8.com/ios/50/combo-chart--v1.png" width="22" style="filter: brightness(0) invert(1);" />
+        <h3 style="margin:0;">Gestão centralizada</h3>
+      </div>
       <p>
       Tudo organizado num único dashboard: campanhas, métricas e mensagens.
       </p>
@@ -600,7 +612,10 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
     <div class="divider"></div>
 
     <div class="item">
-      <h3>Escala e crescimento</h3>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/line-chart.png" width="22"/>
+        <h3 style="margin:0;">Escala e crescimento</h3>
+      </div>
       <p>
       Estrutura pensada para transformar conteúdo em rendimento consistente.
       </p>
@@ -617,7 +632,6 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
 
 </div>
 </section>
-
 <!-- COMO FUNCIONA (TIMELINE FUTURISTA) -->
 <section class="section">
 <div class="container">
@@ -803,10 +817,7 @@ font-size:14px;
 <span>Liberação do pagamento</span>
 
 </div>
-
-</div>
-
-</div>
+</section>
 <section class="section" id="formSection">
 <div class="container">
 
@@ -860,6 +871,87 @@ Enviar e receber link
 </div>
 
 </div>
+
+
+<div id="modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;z-index:9999;">
+  <div style="background:#fff;padding:25px;border-radius:10px;max-width:400px;width:90%;text-align:center;">
+    
+    <p id="modalText" style="margin-bottom:20px;color:#111827;"></p>
+    
+    <button onclick="closeModal()" class="btn">Ok</button>
+
+  </div>
+</div>
+
+</section>
+
+
+<section style="max-width:900px;margin:60px auto;padding:40px;background:#0f172a;border-radius:12px;color:#e2e8f0;">
+
+  <h2 style="text-align:center;margin-bottom:30px;">
+    Privacidade e utilização responsável dos dados
+  </h2>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:25px;">
+
+    <div style="background:#111827;padding:20px;border-radius:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/database.png" width="24" />
+        <h3 style="margin:0;">Finalidade da recolha</h3>
+      </div>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        Os dados solicitados nesta página — nome, email e identificação de uma rede social — são recolhidos exclusivamente para fins de organização interna no contexto do pré-lançamento.
+        Estes dados permitem estruturar a lista de interessados, evitar duplicações e preparar o acesso inicial à plataforma.
+      </p>
+    </div>
+
+    <div style="background:#111827;padding:20px;border-radius:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/lock.png" width="24" />
+        <h3 style="margin:0;">Sobre acesso a contas pessoais</h3>
+      </div>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        A recolha de nome, email e username de redes sociais não concede, por si só, qualquer tipo de acesso a contas pessoais.
+        O acesso a contas requer credenciais confidenciais adicionais (como palavras-passe, códigos de autenticação ou permissões explícitas concedidas pelo próprio utilizador através de mecanismos oficiais das plataformas).
+      </p>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        Esta plataforma não solicita, armazena nem utiliza palavras-passe, nem realiza qualquer tentativa de autenticação em contas de terceiros.
+      </p>
+    </div>
+
+    <div style="background:#111827;padding:20px;border-radius:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/security-checked.png" width="24" />
+        <h3 style="margin:0;">Segurança dos dados</h3>
+      </div>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        As informações fornecidas são tratadas de forma interna e protegidas por mecanismos técnicos e organizacionais que limitam o acesso apenas a sistemas autorizados.
+        Não existe partilha indevida de dados com terceiros nem utilização para fins não relacionados com o pré-lançamento.
+      </p>
+    </div>
+
+    <div style="background:#111827;padding:20px;border-radius:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/email.png" width="24" />
+        <h3 style="margin:0;">Utilização do email</h3>
+      </div>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        O email é utilizado exclusivamente para comunicações relacionadas com o pré-lançamento, incluindo confirmação de participação, atualizações e instruções de acesso.
+      </p>
+    </div>
+
+    <div style="background:#111827;padding:20px;border-radius:10px;">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/info.png" width="24" />
+        <h3 style="margin:0;">Transparência</h3>
+      </div>
+      <p style="margin-top:10px;line-height:1.7;color:#cbd5e1;">
+        O objetivo desta recolha é puramente organizacional e operacional, permitindo preparar uma experiência estruturada para os utilizadores no momento do lançamento.
+      </p>
+    </div>
+
+  </div>
+
 </section>
 
 <!-- FAQ PROFISSIONAL -->
@@ -950,38 +1042,6 @@ Tudo o que precisa saber antes de começar na Assinix.
 </div>
 </section>
 
-
-<script>
-
-/* =========================
-   FAQ INTERATIVO (FIX)
-========================= */
-
-document.addEventListener("DOMContentLoaded", () => {
-
-  const faqItems = document.querySelectorAll('.faq-item');
-
-  faqItems.forEach(item => {
-    const btn = item.querySelector('.faq-question');
-
-    btn.addEventListener('click', () => {
-
-      // Fecha os outros (efeito profissional)
-      faqItems.forEach(i => {
-        if(i !== item){
-          i.classList.remove('active');
-        }
-      });
-
-      // Abre o atual
-      item.classList.toggle('active');
-    });
-  });
-
-});
-
-</script>
-
 <!-- FOOTER -->
 <footer style="margin-top:100px; padding:60px 20px; border-top:1px solid rgba(255,255,255,0.08); position:relative;">
 
@@ -1045,8 +1105,72 @@ document.addEventListener("DOMContentLoaded", () => {
   </div>
 
 </footer>
+
+<script>
+
+/* =========================
+   FAQ INTERATIVO (FIX)
+========================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const faqItems = document.querySelectorAll('.faq-item');
+
+  faqItems.forEach(item => {
+    const btn = item.querySelector('.faq-question');
+
+    if(btn){
+      btn.addEventListener('click', () => {
+
+        faqItems.forEach(i => {
+          if(i !== item){
+            i.classList.remove('active');
+          }
+        });
+
+        item.classList.toggle('active');
+      });
+    }
+
+  });
+
+});
+
+/* =========================
+   MODAL GLOBAL
+========================= */
+
+function showModal(message){
+  const modal = document.getElementById("modal");
+  const text = document.getElementById("modalText");
+
+  if(modal && text){
+    text.textContent = message;
+    modal.style.display = "flex";
+  }
+}
+
+function closeModal(){
+  const modal = document.getElementById("modal");
+  if(modal){
+    modal.style.display = "none";
+  }
+}
+
+/* =========================
+   SCROLL PARA FORM
+========================= */
+
+function scrollToForm(){
+  const section = document.getElementById("formSection");
+  if(section){
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
+</script>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1060,8 +1184,6 @@ const supabase = window.supabase.createClient(
   'sb_publishable_gJkL3ziJYBOKj-rGfcHO5A_PfaHMSR-'
 );
 
-emailjs.init("ZeGTJxCDd1FU6Z1C5");
-
 /* =========================
    ELEMENTOS
 ========================= */
@@ -1074,200 +1196,183 @@ const successTitle = document.getElementById('successTitle');
 let currentUserEmail = localStorage.getItem("userEmail");
 
 /* =========================
-   SCROLL DO HERO
-========================= */
-
-window.scrollToForm = function(){
-  const formSection = document.getElementById('formSection');
-
-  if(formSection){
-    formSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
-  }
-}
-
-/* =========================
-   ANIMAÇÃO AO ROLAR
-========================= */
-
-const reveals = document.querySelectorAll('.reveal');
-
-function revealOnScroll(){
-  const windowHeight = window.innerHeight;
-
-  reveals.forEach(el => {
-    const elementTop = el.getBoundingClientRect().top;
-
-    if(elementTop < windowHeight - 80){
-      el.classList.add('active');
-    }
-  });
-}
-
-window.addEventListener('scroll', revealOnScroll);
-revealOnScroll();
-
-/* =========================
-   HELPERS
-========================= */
-
-function formatMozPhone(phone){
-
-  phone = phone.replace(/\s+/g, '');
-
-  if(phone.startsWith('+258')){
-    phone = phone.replace('+258','');
-  }
-
-  if(!/^8\d{8}$/.test(phone)){
-    return null;
-  }
-
-  return '+258' + phone;
-}
-
-/* =========================
    FORM SUBMIT
 ========================= */
 
-form.addEventListener('submit', async (e)=>{
-  e.preventDefault();
+if(form){
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
 
-  console.log("FORM SUBMIT DISPARADO ✅");
+    const nome = form.nome.value.trim();
+    const email = form.email.value.trim();
+    const social = form.social.value.trim();
 
-  const nome = form.nome.value.trim();
-  const email = form.email.value.trim();
-  const social = form.social.value.trim();
+    if(nome.length < 4){
+      showModal('Nome inválido');
+      return;
+    }
 
-  if(nome.length < 4){
-    alert('Nome inválido');
-    return;
-  }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      showModal('Email inválido');
+      return;
+    }
 
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
-    alert('Email inválido');
-    return;
-  }
+    if(!social){
+      showModal('Informe seu @');
+      return;
+    }
 
-  if(!social){
-    alert('Informe seu @');
-    return;
-  }
+    form.style.display = 'none';
+    loading.style.display = 'block';
 
-  form.style.display = 'none';
-  loading.style.display = 'block';
+    try{
 
-  try{
+      const { error } = await supabase
+        .from('usuarios')
+        .insert([{ nome, email, social }]);
 
-    const { error } = await supabase
-      .from('usuarios')
-      .insert([{ nome, email, social }]);
+      if(error) throw error;
 
-    console.log("SUPABASE ERROR:", error);
+      currentUserEmail = email;
+      localStorage.setItem("userEmail", email);
 
-    if(error) throw error;
-
-    currentUserEmail = email;
-    localStorage.setItem("userEmail", email);
-
-    setTimeout(()=>{
       loading.style.display = 'none';
       success.style.display = 'block';
       successTitle.textContent = `Parabéns, ${nome}! Acesso reservado.`;
-    }, 1200);
 
-  }catch(err){
-    console.error("ERRO FORM:", err);
+    }catch(err){
+      console.error(err);
 
-    loading.style.display = 'none';
-    form.style.display = 'block';
+      loading.style.display = 'none';
+      form.style.display = 'block';
 
-    alert('Erro ao enviar: ' + err.message);
-  }
-});
+      if(err.code === '23505' || err.message.includes('duplicate key')){
+        showModal("Este email já está na lista de espera. Nos vemos lá 👋");
+        return;
+      }
+
+      showModal('Erro ao enviar. Tente novamente.');
+    }
+
+  });
+}
 
 /* =========================
-   SHOW PHONE INPUT + SCROLL
+   MOSTRAR INPUT TELEFONE
 ========================= */
 
 window.showPhoneInput = function(){
 
   const box = document.getElementById('phoneBox');
-  box.style.display = 'block';
 
-  const formSection = document.getElementById('formSection');
+  if(box){
+    box.style.display = 'block';
 
-  if(formSection){
-    formSection.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
-    });
+    box.scrollIntoView({ behavior: 'smooth' });
+
+    setTimeout(()=>{
+      const input = document.getElementById('phoneInput');
+      if(input) input.focus();
+    }, 300);
   }
 
-  setTimeout(()=>{
-    const phoneInput = document.getElementById('phoneInput');
-    if(phoneInput) phoneInput.focus();
-  }, 500);
 }
 
 /* =========================
-   PHONE FLOW
+   CONTROLO BOTÃO + COOLDOWN
+========================= */
+
+let cooldownActive = false;
+let cooldownTime = 30;
+
+/* =========================
+   PHONE FLOW (ENVIA EMAIL)
 ========================= */
 
 window.sendPhoneAndEmail = async function(){
 
-  const rawPhone = document.getElementById('phoneInput').value.trim();
+  if(cooldownActive) return;
+
+  const button = document.querySelector('#phoneBox button');
+  const rawPhone = document.getElementById('phoneInput')?.value?.trim();
   const phoneMsg = document.getElementById('phoneMsg');
 
-  console.log("RAW PHONE:", rawPhone);
+  if(!phoneMsg){
+    showModal("Elemento phoneMsg não encontrado");
+    return;
+  }
 
-  const formattedPhone = formatMozPhone(rawPhone);
+  function formatMozPhone(phone){
+    phone = phone.replace(/\s+/g, '');
 
-  console.log("FORMATTED PHONE:", formattedPhone);
+    if(phone.startsWith('+258')){
+      phone = phone.replace('+258','');
+    }
+
+    if(!/^8\d{8}$/.test(phone)){
+      return null;
+    }
+
+    return '+258' + phone;
+  }
+
+  const formattedPhone = formatMozPhone(rawPhone || "");
 
   if(!formattedPhone){
     phoneMsg.textContent = "Número inválido. Use 845123456";
     return;
   }
 
+  const emailToUse = currentUserEmail || form?.email?.value;
+  const nomeToUse = form?.nome?.value;
+
+  if(!emailToUse || !nomeToUse){
+    phoneMsg.textContent = "Preencha o formulário primeiro.";
+    return;
+  }
+
+  /* =========================
+     START COOLDOWN
+  ========================= */
+
+  cooldownActive = true;
+  let timeLeft = cooldownTime;
+
+  if(button){
+    button.disabled = true;
+  }
+
+  const interval = setInterval(()=>{
+    if(button){
+      button.textContent = `Aguarde (${timeLeft}s)`;
+    }
+    timeLeft--;
+
+    if(timeLeft < 0){
+      clearInterval(interval);
+      cooldownActive = false;
+
+      if(button){
+        button.disabled = false;
+        button.textContent = "Enviar e receber link";
+      }
+    }
+  }, 1000);
+
   phoneMsg.textContent = "Processando...";
 
   try{
 
-    const emailToUse = currentUserEmail || localStorage.getItem("userEmail") || form.email.value;
-    const nomeToUse = form.nome.value;
-
-    console.log("EMAIL FINAL:", emailToUse);
-    console.log("NOME:", nomeToUse);
-
-    if(!emailToUse){
-      throw new Error("Email não encontrado");
-    }
-
-    const { error: dbError } = await supabase
-      .from('whatsapp_leads')
-      .insert([{ phone: formattedPhone }]);
-
-    console.log("SUPABASE LEAD ERROR:", dbError);
-
-    if(dbError) throw dbError;
-
-    console.log("ENVIANDO EMAIL...");
-
-    const response = await emailjs.send(
-      "service_j1qc843",
-      "template_6n96dck",
-      {
-        name: nomeToUse,
+    await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
         email: emailToUse,
-        telefone: formattedPhone,
-        title: "Acesso VIP Assinix"
-      }
-    );
-
-    console.log("EMAILJS RESPONSE:", response);
+        nome: nomeToUse
+      }),
+    });
 
     phoneMsg.innerHTML = `
       ✔ O link foi enviado para:<br><br>
@@ -1275,11 +1380,33 @@ window.sendPhoneAndEmail = async function(){
     `;
 
   }catch(err){
-    console.error("ERRO COMPLETO:", err);
-    phoneMsg.textContent = "Erro ao processar. Tente novamente.";
+    console.error(err);
+    phoneMsg.textContent = "Erro ao enviar email.";
   }
 
 }
+
+});
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const reveals = document.querySelectorAll(".reveal");
+
+  function revealOnScroll(){
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(el => {
+      const elementTop = el.getBoundingClientRect().top;
+
+      if(elementTop < windowHeight - 100){
+        el.classList.add("active");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll(); // executar ao carregar
 
 });
 </script>
