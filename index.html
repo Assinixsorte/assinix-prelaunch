@@ -1105,7 +1105,6 @@ Tudo o que precisa saber antes de começar na Assinix.
   </div>
 
 </footer>
-
 <script>
 
 /* =========================
@@ -1171,6 +1170,7 @@ function scrollToForm(){
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -1178,6 +1178,8 @@ document.addEventListener("DOMContentLoaded", () => {
 /* =========================
    INIT
 ========================= */
+
+emailjs.init("ZeGTJxCDd1FU6Z1C5"); // ✅ Public Key correta
 
 const supabase = window.supabase.createClient(
   'https://nvpocsqsiryoipuduuob.supabase.co',
@@ -1363,15 +1365,9 @@ window.sendPhoneAndEmail = async function(){
 
   try{
 
-    await fetch("/api/send-email", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email: emailToUse,
-        nome: nomeToUse
-      }),
+    await emailjs.send("service_j1qc843", "template_6n96dck", {
+      nome: nomeToUse,
+      email: emailToUse
     });
 
     phoneMsg.innerHTML = `
@@ -1388,6 +1384,7 @@ window.sendPhoneAndEmail = async function(){
 
 });
 </script>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -1406,7 +1403,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll(); // executar ao carregar
+  revealOnScroll();
 
 });
 </script>
