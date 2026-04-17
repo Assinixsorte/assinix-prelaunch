@@ -864,7 +864,7 @@ function toggleMenu(btn){
   <div class="container premium-content">
 
     <div class="premium-logo">
-      <img src="logo.png" alt="Assinix Logo">
+      <img src="logos.jpg" alt="Assinix Logo">
     </div>
 
     <!-- NOVO TÍTULO -->
@@ -1251,7 +1251,7 @@ line-height:1.6;
 
 
 <!-- =========================
-     MARCAS — VERSÃO ESTÁVEL
+     MARCAS — VERSÃO ESTÁVEL FINAL
 ========================= -->
 
 <style>
@@ -1264,36 +1264,40 @@ line-height:1.6;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:28px;
   margin-top:50px;
+  contain: layout paint;
 }
 
+/* CARD */
 .brand-card{
   position:relative;
   border-radius:18px;
   overflow:hidden;
-  background:rgba(255,255,255,0.03);
+  background:#0b1220;
   border:1px solid rgba(255,255,255,0.08);
-  transition:transform 0.2s ease;
 }
 
-/* hover leve (não pesa) */
-.brand-card:hover{
-  transform:translateY(-4px);
-}
-
-/* imagem estática */
+/* IMAGEM (CORRIGIDA - SEM ABSOLUTE) */
 .brand-card img{
   width:100%;
-  height:150px;
+  height:160px;
   object-fit:cover;
   display:block;
+  opacity:0;
+  transition:opacity .3s ease;
 }
 
-/* overlay escuro */
+/* quando carregar */
+.brand-card img.loaded{
+  opacity:1;
+}
+
+/* overlay */
 .brand-card::before{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  background:linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+  pointer-events:none;
 }
 
 /* texto */
@@ -1327,7 +1331,6 @@ line-height:1.6;
 A Assinix está a organizar diferentes setores de negócio que irão trabalhar com influencers na fase inicial da plataforma.
 </p>
 
-
 <div class="brands-grid">
 
   <div class="brand-card">
@@ -1352,7 +1355,7 @@ A Assinix está a organizar diferentes setores de negócio que irão trabalhar c
 
   <div class="brand-card">
     <img src="lifestyle1.jpg" alt="Lifestyle">
-    <p>Marcas de lifestyle</p>
+    <p>Lifestyle</p>
   </div>
 
   <div class="brand-card">
@@ -1361,7 +1364,6 @@ A Assinix está a organizar diferentes setores de negócio que irão trabalhar c
   </div>
 
 </div>
-
 
 <p style="
 text-align:center;
@@ -1377,6 +1379,13 @@ font-size:16px;
 </section>
 
 
+<script>
+document.querySelectorAll(".brand-card img").forEach(img=>{
+  img.addEventListener("load", ()=>{
+    img.classList.add("loaded");
+  });
+});
+</script>
 
 <style>
 .trust-section {
