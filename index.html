@@ -731,6 +731,336 @@ line-height:1.6;
 </div>
 </section>
 
+
+
+<style>
+.brands-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.brand-card{
+  position:relative;
+  border-radius:16px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.brand-card img{
+  width:100%;
+  height:140px;
+  object-fit:cover;
+  display:block;
+  transition:opacity 0.6s ease;
+}
+
+.brand-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+.brand-card p{
+  position:absolute;
+  bottom:10px;
+  left:15px;
+  right:15px;
+  color:#fff;
+  font-weight:600;
+}
+
+.fade-out{
+  opacity:0;
+}
+</style>
+
+
+<!-- =========================
+     MARCAS — PREMIUM EXPERIENCE
+========================= -->
+
+<style>
+.brands-section{
+  padding:80px 20px;
+}
+
+.brands-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:28px;
+  margin-top:50px;
+}
+
+.brand-card{
+  position:relative;
+  border-radius:18px;
+  overflow:hidden;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.brand-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* imagem */
+.brand-card img{
+  width:100%;
+  height:150px;
+  object-fit:cover;
+  display:block;
+  transition:opacity 1s ease;
+}
+
+/* overlay premium */
+.brand-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+}
+
+/* texto */
+.brand-card p{
+  position:absolute;
+  bottom:14px;
+  left:18px;
+  right:18px;
+  color:#fff;
+  font-weight:600;
+  font-size:15px;
+  letter-spacing:0.3px;
+}
+
+/* fade ultra suave */
+.fade-out{
+  opacity:0;
+}
+
+/* glow sutil */
+.brand-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  box-shadow:0 0 0 rgba(34,197,94,0);
+  transition:0.4s;
+}
+
+.brand-card:hover::after{
+  box-shadow:0 0 30px rgba(34,197,94,0.2);
+}
+</style>
+
+
+<section class="brands-section">
+<div class="container">
+
+<h2 style="text-align:center; font-size:28px;">
+  Tipos de marcas em preparação para colaboração
+</h2>
+
+<p style="
+text-align:center;
+max-width:700px;
+margin:15px auto 50px auto;
+color:#94a3b8;
+font-size:15px;
+line-height:1.6;
+">
+A Assinix está a organizar diferentes setores de negócio que irão trabalhar com influencers na fase inicial da plataforma.
+</p>
+
+
+<div class="brands-grid">
+
+  <div class="brand-card" data-category="restaurant">
+    <img src="restaurant1.jpg">
+    <p>Restaurantes</p>
+  </div>
+
+  <div class="brand-card" data-category="loja">
+    <img src="loja1.jpg">
+    <p>Lojas online</p>
+  </div>
+
+  <div class="brand-card" data-category="startup">
+    <img src="startup1.jpg">
+    <p>Startups digitais</p>
+  </div>
+
+  <div class="brand-card" data-category="local">
+    <img src="local1.jpg">
+    <p>Negócios locais</p>
+  </div>
+
+  <div class="brand-card" data-category="lifestyle">
+    <img src="lifestyle1.jpg">
+    <p>Marcas de lifestyle</p>
+  </div>
+
+  <div class="brand-card" data-category="beauty">
+    <img src="beauty1.jpg">
+    <p>Beleza & cosméticos</p>
+  </div>
+
+</div>
+
+
+<p style="
+text-align:center;
+margin-top:50px;
+color:#22c55e;
+font-weight:bold;
+font-size:16px;
+letter-spacing:0.5px;
+">
++33 marcas já demonstraram interesse em trabalhar com creators
+</p>
+
+</div>
+</section>
+
+
+<script>
+const imagesByCategory = {
+  restaurant: ["restaurant1.jpg", "restaurant2.jpg"],
+  loja: ["loja1.jpg", "loja2.jpg"],
+  startup: ["startup1.jpg", "startup2.jpg"],
+  local: ["local1.jpg", "local2.jpg"],
+  lifestyle: ["lifestyle1.jpg", "lifestyle2.jpg"],
+  beauty: ["beauty1.jpg", "beauty2.jpg"]
+};
+
+function animateCard(card){
+
+  const img = card.querySelector("img");
+  const category = card.dataset.category;
+  const images = imagesByCategory[category];
+
+  setInterval(() => {
+
+    let current = img.getAttribute("src");
+
+    let next = images[Math.floor(Math.random() * images.length)];
+
+    if(next === current){
+      next = images[(images.indexOf(next)+1)%images.length];
+    }
+
+    img.classList.add("fade-out");
+
+    setTimeout(() => {
+      img.src = next;
+      img.classList.remove("fade-out");
+    }, 500);
+
+  }, 20000); // 20 segundos (leve + elegante)
+
+}
+
+// inicia imediatamente (sem depender de scroll)
+document.querySelectorAll(".brand-card").forEach(animateCard);
+</script>
+
+
+
+<style>
+.trust-section {
+  padding: 80px 20px;
+  background: #0b0f17;
+  color: #e6e6e6;
+  font-family: Arial, sans-serif;
+}
+
+.trust-container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.trust-hero h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.trust-hero p {
+  opacity: 0.8;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.trust-card {
+  background: #121826;
+  border: 1px solid #1f2a3a;
+  padding: 20px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.trust-card:hover {
+  border-color: #2d7dff;
+}
+
+.trust-card h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.trust-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
+
+.trust-warning {
+  margin-top: 50px;
+  padding: 20px;
+  border-left: 3px solid #ffb020;
+  background: rgba(255, 176, 32, 0.05);
+}
+
+.trust-warning h3 {
+  margin-bottom: 10px;
+}
+
+.trust-cta {
+  margin-top: 40px;
+  padding: 25px;
+  background: #121826;
+  border: 1px solid #1f2a3a;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.trust-cta button {
+  margin-top: 15px;
+  padding: 12px 18px;
+  background: #2d7dff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+</style>
+
+
+
+
 <!-- PAGAMENTOS (VERSÃO PREMIUM) -->
 <section class="section">
 <div class="container">
@@ -831,6 +1161,151 @@ font-size:14px;
 
 <button class="btn" type="submit" id="submitBtn">Quero participar</button>
 </form>
+
+
+<div style="margin-top:25px; text-align:center;">
+  
+  <div style="
+    height:1px;
+    background:rgba(255,255,255,0.08);
+    margin:20px 0;
+  "></div>
+
+  <p style="color:#94a3b8; margin-bottom:15px;">
+    Ou entra diretamente no grupo VIP
+  </p>
+
+  <button onclick="openVipModal()" style="
+    padding:12px 18px;
+    border-radius:10px;
+    border:1px solid rgba(34,197,94,0.4);
+    background:transparent;
+    color:#22c55e;
+    font-weight:bold;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  ">
+
+    <img src="./whatsapp.png"
+         alt="WhatsApp"
+         style="width:20px;height:20px;">
+
+    Entrar direto no grupo VIP
+
+  </button>
+
+</div>
+
+
+<div id="vipModal" style="
+display:none;
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.7);
+z-index:999999;
+align-items:center;
+justify-content:center;
+font-family:Arial;
+">
+
+  <div style="
+    background:#0f172a;
+    width:min(700px,92%);
+    border-radius:14px;
+    padding:25px;
+    border:1px solid rgba(255,255,255,0.08);
+    color:#fff;
+    position:relative;
+  ">
+
+    <button onclick="closeVipModal()" style="
+      position:absolute;
+      top:10px;
+      right:12px;
+      background:transparent;
+      border:none;
+      color:#fff;
+      font-size:22px;
+      cursor:pointer;
+    ">×</button>
+
+    <h2 style="margin-bottom:15px;">
+      👋 Olá!
+    </h2>
+
+    <p style="color:#94a3b8; line-height:1.7;">
+      Recomendamos que, após entrares no grupo VIP, voltes para fazer a tua inscrição completa.
+      <br><br>
+      Assim teremos o teu <b style="color:#fff;">nome e email</b> para te avisar diretamente sobre:
+    </p>
+
+    <div style="margin:15px 0; color:#22c55e; line-height:1.7;">
+      ✔ Novas propostas de marcas<br>
+      ✔ Lançamento oficial da plataforma<br>
+      ✔ Oportunidades exclusivas personalizadas<br>
+      ✔ Dicas para aumentar ganhos como creator
+    </div>
+
+    <p style="color:#94a3b8; line-height:1.7;">
+      O grupo VIP terá acesso antecipado a campanhas e novidades, mas a inscrição garante comunicação direta e personalizada por email.
+    </p>
+
+    <div style="display:flex; gap:10px; margin-top:20px; flex-wrap:wrap;">
+
+      <a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss" target="_blank" style="
+        flex:1;
+        text-align:center;
+        padding:12px;
+        border-radius:10px;
+        background:#22c55e;
+        color:#0f172a;
+        font-weight:bold;
+        text-decoration:none;
+      ">
+        Entrar no grupo VIP
+      </a>
+
+      <button onclick="scrollToForm(); closeVipModal();" style="
+        flex:1;
+        padding:12px;
+        border-radius:10px;
+        border:1px solid rgba(255,255,255,0.2);
+        background:transparent;
+        color:#fff;
+        font-weight:bold;
+        cursor:pointer;
+      ">
+        Prosseguir inscrição
+      </button>
+
+    </div>
+
+  </div>
+</div>
+
+
+<script>
+function openVipModal(){
+  const modal = document.getElementById("vipModal");
+  if(modal) modal.style.display = "flex";
+}
+
+function closeVipModal(){
+  const modal = document.getElementById("vipModal");
+  if(modal) modal.style.display = "none";
+}
+
+/* scroll para formulário */
+function scrollToForm(){
+  const form = document.getElementById("formSection");
+  if(form){
+    form.scrollIntoView({ behavior: "smooth" });
+  }
+}
+</script>
+
 
 <!-- LOADING -->
 <div id="loading" style="display:none;margin-top:30px;text-align:center;">
@@ -954,6 +1429,14 @@ Enviar e receber link
 
 </section>
 
+
+
+
+
+
+
+
+
 <!-- FAQ PROFISSIONAL -->
 <section class="section">
 <div class="container">
@@ -1037,10 +1520,264 @@ Tudo o que precisa saber antes de começar na Assinix.
     </div>
   </div>
 
+  <!-- 🔥 NOVAS PERGUNTAS -->
+
+  <div class="faq-item">
+    <button class="faq-question">A Assinix já é uma plataforma oficial?</button>
+    <div class="faq-answer">
+      A Assinix encontra-se atualmente em fase de pré-lançamento. Isso significa que ainda estamos a construir a plataforma e a preparar o acesso inicial para os primeiros utilizadores selecionados.  
+      <br><br>
+      Durante esta fase, todas as informações são transparentes e os utilizadores fazem parte de um grupo antecipado antes do lançamento oficial.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">O site já está totalmente ativo?</button>
+    <div class="faq-answer">
+      Ainda não. Neste momento, a página funciona como uma versão de pré-registo e apresentação do projeto.  
+      <br><br>
+      As funcionalidades completas da plataforma (como campanhas, propostas e dashboard) serão ativadas no lançamento oficial.
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">Como posso saber se a Assinix é confiável?</button>
+    <div class="faq-answer">
+      A confiabilidade da Assinix baseia-se na transparência do processo, no uso de sistemas seguros como escrow para pagamentos e na comunicação direta com os utilizadores da lista VIP.  
+      <br><br>
+      Além disso, todos os acessos são organizados e nenhuma informação sensível é solicitada fora dos canais oficiais.
+    </div>
+  </div>
+
+  <!-- ➕ EXTRA 1 -->
+  <div class="faq-item">
+    <button class="faq-question">Preciso pagar para usar a plataforma no futuro?</button>
+    <div class="faq-answer">
+      Não. O objetivo da Assinix é permitir que influencers monetizem conteúdo sem custos iniciais. O acesso básico continuará gratuito, podendo existir funcionalidades premium opcionais no futuro.
+    </div>
+  </div>
+
+  <!-- ➕ EXTRA 2 -->
+  <div class="faq-item">
+    <button class="faq-question">Posso trabalhar com marcas internacionais?</button>
+    <div class="faq-answer">
+      Sim. A Assinix foi desenhada para permitir colaborações locais e internacionais, dependendo do perfil do influencer e das campanhas disponíveis.
+    </div>
+  </div>
+
 </div>
 
 </div>
 </section>
+
+
+
+<!-- ================= EXIT MODAL SIMPLES ================= -->
+<style>
+.exit-overlay{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.7);
+  z-index:999999;
+  align-items:center;
+  justify-content:center;
+  font-family:Arial, sans-serif;
+}
+
+.exit-box{
+  background:#0f172a;
+  width:min(600px,92%);
+  border-radius:14px;
+  padding:30px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.08);
+  animation:fadeUp .2s ease;
+}
+
+.exit-box h2{
+  color:#fff;
+  margin-bottom:10px;
+  font-size:20px;
+}
+
+.exit-box p{
+  color:#94a3b8;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+.exit-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:12px 18px;
+  border-radius:10px;
+  background:#22c55e;
+  color:#0f172a;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.exit-btn img{
+  width:20px;
+  height:20px;
+}
+
+.exit-close{
+  margin-top:15px;
+  background:transparent;
+  border:none;
+  color:#94a3b8;
+  cursor:pointer;
+  font-size:13px;
+}
+
+@keyframes fadeUp{
+  from{transform:translateY(10px);opacity:0;}
+  to{transform:translateY(0);opacity:1;}
+}
+</style>
+
+<!-- MODAL -->
+<div id="exitModal" class="exit-overlay">
+
+  <div class="exit-box">
+
+    <h2>👋 Antes de sair…</h2>
+
+    <p>
+      Recomendamos que entres no nosso grupo VIP para receberes todas as atualizações, oportunidades e novidades em primeira mão.<br><br>
+      Depois, quando te sentires seguro, podes continuar a tua inscrição com calma.
+    </p>
+
+    <a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss" target="_blank" class="exit-btn">
+      <img src="./whatsapp.png">
+      Entrar no grupo VIP
+    </a>
+
+    <br>
+
+    <button class="exit-close" onclick="closeExitModal()">
+      Continuar no site
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+let exitShown = false;
+
+/* MOSTRAR MODAL */
+function showExitModal(){
+  if(exitShown) return;
+
+  exitShown = true;
+  document.getElementById("exitModal").style.display = "flex";
+}
+
+/* FECHAR */
+function closeExitModal(){
+  document.getElementById("exitModal").style.display = "none";
+}
+
+/* EXIT INTENT (PC) */
+document.addEventListener("mouseout", (e)=>{
+  if(!e.relatedTarget && e.clientY <= 0){
+    showExitModal();
+  }
+});
+
+/* MOBILE (scroll leve) */
+window.addEventListener("scroll", ()=>{
+  if(window.scrollY > window.innerHeight * 1.5){
+    showExitModal();
+  }
+});
+
+/* ESC fecha */
+document.addEventListener("keydown", (e)=>{
+  if(e.key === "Escape"){
+    closeExitModal();
+  }
+});
+
+/* não repetir */
+document.addEventListener("DOMContentLoaded", ()=>{
+  document.getElementById("exitModal").style.display = "none";
+});
+</script>
+
+
+
+
+
+
+
+
+<div id="cookieBanner" style="
+position: fixed;
+bottom: 20px;
+left: 50%;
+transform: translateX(-50%);
+width: min(800px, 92%);
+background: rgba(15, 23, 42, 0.92);
+border: 1px solid rgba(255,255,255,0.08);
+backdrop-filter: blur(10px);
+padding: 14px 16px;
+border-radius: 12px;
+z-index: 99999;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:12px;
+">
+
+  <div style="display:flex;align-items:center;gap:10px;color:#cbd5e1;font-size:13px;">
+
+    <!-- ÍCONE LOCAL DO COOKIE -->
+    <img 
+      src="./cookie.png" 
+      alt="cookie"
+      style="width:22px;height:22px;"
+    >
+
+    <span>Usamos cookies para melhorar a experiência e desempenho do site.</span>
+  </div>
+
+  <button onclick="acceptCookies()" style="
+    background:#22c55e;
+    border:none;
+    color:white;
+    padding:8px 14px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+    Continuar
+  </button>
+
+</div>
+
+<script>
+function acceptCookies(){
+  localStorage.setItem("cookiesAccepted", "true");
+  document.getElementById("cookieBanner").style.display = "none";
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  if(localStorage.getItem("cookiesAccepted")){
+    document.getElementById("cookieBanner").style.display = "none";
+  }
+});
+</script>
+
+
+
+
+
 
 <!-- FOOTER -->
 <footer style="margin-top:100px; padding:60px 20px; border-top:1px solid rgba(255,255,255,0.08); position:relative;">
@@ -1105,6 +1842,8 @@ Tudo o que precisa saber antes de começar na Assinix.
   </div>
 
 </footer>
+
+
 <script>
 
 /* =========================
@@ -1406,6 +2145,8 @@ document.addEventListener("DOMContentLoaded", () => {
   revealOnScroll();
 
 });
+
+
 </script>
 </body>
 </html>
