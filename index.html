@@ -26,13 +26,11 @@ body{
   color:#fff;
 }
 
-/* CONTAINER PADRÃO */
 .container{
   max-width:1100px;
   margin:auto;
-  padding:60px 20px;
+  padding:30px 20px;
 }
-
 /* TIPOGRAFIA */
 h1{
   font-size:52px;
@@ -108,9 +106,8 @@ p{
 ========================= */
 
 .section{
-  padding:90px 20px;
+  padding:50px 20px;
 }
-
 /* GRID RESPONSIVO */
 .grid{
   display:grid;
@@ -467,34 +464,343 @@ input{
 
 
 
+@media(max-width:768px){
+
+  .section{
+    padding:35px 15px;
+  }
+
+  .container{
+    padding:20px 15px;
+  }
+
+}
+
+
+
+
+
+
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<style>
+
+/* ================= HEADER ================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+#sobre,
+#beneficios,
+#como-funciona,
+#faq,
+#seguranca {
+  scroll-margin-top: 90px;
+}
+
+
+
+.header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:16px 28px;
+
+  background:rgba(2,6,23,0.35);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.header .logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-weight:600;
+}
+
+.header .logo img{
+  width:32px;
+  height:32px;
+}
+
+/* NAV */
+.header .nav{
+  display:flex;
+  gap:22px;
+}
+
+.header .nav a{
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.header .nav a:hover{
+  color:#fff;
+}
+
+/* CTA HEADER */
+.header .cta{
+  padding:10px 14px;
+  background:#22c55e;
+  color:#0f172a;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* ================= HAMBURGUER (ELEGANTE CORRIGIDO) ================= */
+.menu-btn{
+  display:none;
+  width:26px;
+  height:18px;
+  flex-direction:column;
+  justify-content:space-between;
+  cursor:pointer;
+}
+
+.menu-btn span{
+  height:2px;
+  width:100%;
+  background:#fff;
+  border-radius:2px;
+  transition:0.35s ease;
+}
+
+/* ANIMAÇÃO X PERFEITA */
+.menu-btn.active span:nth-child(1){
+  transform:translateY(8px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+  opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+  transform:translateY(-8px) rotate(-45deg);
+}
+
+/* ================= HERO ================= */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  padding-top:90px;
+}
+
+.bg-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,0.65),rgba(2,6,23,0.95));
+  z-index:-1;
+}
+
+.hero .container{
+  position:relative;
+  z-index:2;
+  max-width:820px;
+}
+
+.hero h1{
+  font-size:56px;
+  margin-bottom:15px;
+  color:#fff;
+}
+
+.hero p{
+  color:#94a3b8;
+  font-size:16px;
+  line-height:1.7;
+  max-width:650px;
+  margin:auto;
+}
+
+/* CTA */
+.cta-group{
+  margin-top:30px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+}
+
+/* botão lista VIP */
+.btn{
+  padding:16px 30px;
+  border-radius:12px;
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.25);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  border-color:#fff;
+}
+
+/* whatsapp */
+.whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+
+  padding:14px 20px;
+  border-radius:10px;
+
+  background:#22c55e;
+  color:#0f172a;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+/* RESPONSIVO */
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .header .nav{
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    width:100%;
+    flex-direction:column;
+    background:rgba(2,6,23,0.95);
+    padding:15px;
+  }
+
+  .header .nav.active{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:flex;
+  }
+}
+
+
+
+
+#garanta-vaga{
+  scroll-margin-top: 100px;
+}
+</style>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+  <div class="logo">
+    <img src="logo.jpg" alt="logo">
+    Assinix
+  </div>
+
+  <div class="menu-btn" onclick="toggleMenu(this)">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+<nav class="nav" id="nav">
+  <a href="#sobre">Sobre</a>
+  <a href="#beneficios">Benefícios</a>
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#faq">FAQ</a>
+  <a href="#seguranca">Segurança</a>
+</nav>
+<a href="#garanta-vaga" class="cta">Entrar na lista</a>
+
+</header>
+
+<!-- ================= HERO ================= -->
 <section class="hero">
 
-<video autoplay muted loop playsinline preload="auto" class="bg-video">
-  <source src="video.mp4" type="video/mp4">
-</video>
+  <video autoplay muted loop playsinline class="bg-video">
+    <source src="video.mp4" type="video/mp4">
+  </video>
 
-<div class="overlay"></div>
+  <div class="overlay"></div>
 
-<div class="container">
+  <div class="container">
 
-<h1>Ganhe dinheiro como influencer</h1>
+    <h1>Ganhe dinheiro como influencer</h1>
 
-<p>Marcas pagam pelo seu conteúdo. A Assinix conecta você a essas oportunidades.</p>
+    <p>
+      Marcas pagam pelo seu conteúdo. A Assinix conecta você a essas oportunidades.<br><br>
 
-<button class="btn" onclick="scrollToForm()">Entrar na lista VIP</button>
+      ✔ Acesso gratuito<br>
+      ✔ Propostas ilimitadas em crescimento contínuo<br>
+      ✔ Dashboard profissional completo<br><br>
 
-</div>
+      Venha garantir sua presença e fazer parte do grupo VIP.
+    </p>
+
+    <div class="cta-group">
+
+      <!-- REDIRECIONA PARA FORM -->
+      <button class="btn" onclick="document.getElementById('garanta-vaga').scrollIntoView({behavior:'smooth'})">
+        Entrar na lista VIP
+      </button>
+
+      <a class="whatsapp-btn" href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss" target="_blank">
+        <img src="whatsapp.png" width="20">
+        Grupo VIP WhatsApp
+      </a>
+
+    </div>
+
+  </div>
 
 </section>
 
+<script>
+
+function toggleMenu(btn){
+  const nav = document.getElementById("nav");
+  nav.classList.toggle("active");
+  btn.classList.toggle("active");
+}
+
+</script>
+
+<!-- ================= SCRIPT ================= -->
+
 <!-- SOCIAL PROOF -->
-<section class="section">
+<!-- SOBRE + BENEFÍCIOS (SEÇÃO PREMIUM COM IMAGEM) -->
+<section id="sobre" class="section">
 <div class="container">
 
 <h2>Já estamos a crescer 🚀</h2>
@@ -546,6 +852,171 @@ input{
 
 </div>
 </section>
+
+
+
+
+
+<section id="beneficios" class="premium-section">
+
+  <div class="premium-overlay"></div>
+
+  <div class="container premium-content">
+
+    <div class="premium-logo">
+      <img src="logo.png" alt="Assinix Logo">
+    </div>
+
+    <!-- NOVO TÍTULO -->
+    <h2 class="premium-title-main">
+      Tudo o que precisas para atingir a tua liberdade financeira
+    </h2>
+
+    <p class="premium-subtitle">
+      Uma estrutura completa criada para transformar criadores em profissionais independentes.
+    </p>
+
+    <!-- VANTAGENS -->
+    <div class="premium-grid">
+
+      <div class="premium-item"><span>✔</span><p>Acesso gratuito à plataforma</p></div>
+      <div class="premium-item"><span>✔</span><p>Propostas ilimitadas</p></div>
+      <div class="premium-item"><span>✔</span><p>Painel profissional completo</p></div>
+      <div class="premium-item"><span>✔</span><p>Conexão com marcas reais</p></div>
+      <div class="premium-item"><span>✔</span><p>Gestão segura de campanhas</p></div>
+      <div class="premium-item"><span>✔</span><p>Sem custos iniciais</p></div>
+
+      <div class="premium-item"><span>✔</span><p>Oportunidades diárias</p></div>
+      <div class="premium-item"><span>✔</span><p>Negociação direta com marcas</p></div>
+      <div class="premium-item"><span>✔</span><p>Sistema de escrow seguro</p></div>
+      <div class="premium-item"><span>✔</span><p>Dashboard de métricas</p></div>
+
+      <div class="premium-item"><span>✔</span><p>Crescimento acelerado</p></div>
+      <div class="premium-item"><span>✔</span><p>Parcerias verificadas</p></div>
+      <div class="premium-item"><span>✔</span><p>Histórico de campanhas</p></div>
+      <div class="premium-item"><span>✔</span><p>Gestão simplificada</p></div>
+
+      <div class="premium-item"><span>✔</span><p>Oportunidades internacionais</p></div>
+      <div class="premium-item"><span>✔</span><p>Suporte a criadores</p></div>
+      <div class="premium-item"><span>✔</span><p>Maior visibilidade</p></div>
+      <div class="premium-item"><span>✔</span><p>Pagamentos seguros</p></div>
+      <div class="premium-item"><span>✔</span><p>Escala de rendimento real</p></div>
+
+    </div>
+
+    <p class="premium-note">
+      Tudo integrado num único sistema pensado para acelerar o crescimento de criadores de conteúdo.
+    </p>
+
+  </div>
+</section>
+
+
+<style>
+.premium-section{
+  position:relative;
+  padding:100px 20px;
+  background:linear-gradient(180deg,#070b14,#050814);
+  overflow:hidden;
+}
+
+/* brilho premium */
+.premium-overlay{
+  position:absolute;
+  inset:0;
+  background:radial-gradient(circle at center, rgba(34,197,94,0.14), transparent 60%);
+  z-index:0;
+}
+
+/* conteúdo */
+.premium-content{
+  position:relative;
+  text-align:center;
+}
+
+/* logo */
+.premium-logo img{
+  width:80px;
+  margin-bottom:20px;
+  opacity:0.95;
+}
+
+/* TÍTULO PRINCIPAL */
+.premium-title-main{
+  font-size:32px;
+  color:#ffffff;
+  margin-bottom:10px;
+  line-height:1.3;
+  letter-spacing:0.2px;
+}
+
+/* SUBTÍTULO */
+.premium-subtitle{
+  color:#94a3b8;
+  font-size:15px;
+  margin-bottom:35px;
+  max-width:650px;
+  margin-left:auto;
+  margin-right:auto;
+  line-height:1.7;
+}
+
+/* GRID */
+.premium-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:14px;
+}
+
+/* ITEM */
+.premium-item{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.08);
+  transition:0.25s;
+}
+
+.premium-item:hover{
+  transform:translateY(-3px);
+  border-color:rgba(34,197,94,0.4);
+}
+
+/* check */
+.premium-item span{
+  color:#22c55e;
+  font-size:16px;
+  font-weight:bold;
+}
+
+/* texto */
+.premium-item p{
+  margin:0;
+  color:#e2e8f0;
+  font-size:13.5px;
+}
+
+/* nota */
+.premium-note{
+  margin-top:40px;
+  color:#94a3b8;
+  font-size:15px;
+  max-width:650px;
+  margin:auto;
+  line-height:1.7;
+}
+</style>
+
+
+
+
+
+
+
+
 
 <!-- BENEFÍCIOS (VERSÃO EDITORIAL COM IMAGEM) -->
 <section class="section">
@@ -633,7 +1104,7 @@ A Assinix foi criada para redefinir a forma como influencers e marcas colaboram.
 </div>
 </section>
 <!-- COMO FUNCIONA (TIMELINE FUTURISTA) -->
-<section class="section">
+<section id="como-funciona" class="section">
 <div class="container">
 
 <h2>Como funciona</h2>
@@ -780,7 +1251,7 @@ line-height:1.6;
 
 
 <!-- =========================
-     MARCAS — PREMIUM EXPERIENCE
+     MARCAS — VERSÃO ESTÁVEL
 ========================= -->
 
 <style>
@@ -801,29 +1272,28 @@ line-height:1.6;
   overflow:hidden;
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
-  transition:transform 0.3s ease, box-shadow 0.3s ease;
+  transition:transform 0.2s ease;
 }
 
+/* hover leve (não pesa) */
 .brand-card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  transform:translateY(-4px);
 }
 
-/* imagem */
+/* imagem estática */
 .brand-card img{
   width:100%;
   height:150px;
   object-fit:cover;
   display:block;
-  transition:opacity 1s ease;
 }
 
-/* overlay premium */
+/* overlay escuro */
 .brand-card::before{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(to top, rgba(0,0,0,0.75), transparent);
+  background:linear-gradient(to top, rgba(0,0,0,0.7), transparent);
 }
 
 /* texto */
@@ -835,26 +1305,6 @@ line-height:1.6;
   color:#fff;
   font-weight:600;
   font-size:15px;
-  letter-spacing:0.3px;
-}
-
-/* fade ultra suave */
-.fade-out{
-  opacity:0;
-}
-
-/* glow sutil */
-.brand-card::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  border-radius:18px;
-  box-shadow:0 0 0 rgba(34,197,94,0);
-  transition:0.4s;
-}
-
-.brand-card:hover::after{
-  box-shadow:0 0 30px rgba(34,197,94,0.2);
 }
 </style>
 
@@ -880,33 +1330,33 @@ A Assinix está a organizar diferentes setores de negócio que irão trabalhar c
 
 <div class="brands-grid">
 
-  <div class="brand-card" data-category="restaurant">
-    <img src="restaurant1.jpg">
+  <div class="brand-card">
+    <img src="restaurant1.jpg" alt="Restaurantes">
     <p>Restaurantes</p>
   </div>
 
-  <div class="brand-card" data-category="loja">
-    <img src="loja1.jpg">
+  <div class="brand-card">
+    <img src="loja1.jpg" alt="Lojas online">
     <p>Lojas online</p>
   </div>
 
-  <div class="brand-card" data-category="startup">
-    <img src="startup1.jpg">
+  <div class="brand-card">
+    <img src="startup1.jpg" alt="Startups">
     <p>Startups digitais</p>
   </div>
 
-  <div class="brand-card" data-category="local">
-    <img src="local1.jpg">
+  <div class="brand-card">
+    <img src="local1.jpg" alt="Negócios locais">
     <p>Negócios locais</p>
   </div>
 
-  <div class="brand-card" data-category="lifestyle">
-    <img src="lifestyle1.jpg">
+  <div class="brand-card">
+    <img src="lifestyle1.jpg" alt="Lifestyle">
     <p>Marcas de lifestyle</p>
   </div>
 
-  <div class="brand-card" data-category="beauty">
-    <img src="beauty1.jpg">
+  <div class="brand-card">
+    <img src="beauty1.jpg" alt="Beleza">
     <p>Beleza & cosméticos</p>
   </div>
 
@@ -919,55 +1369,12 @@ margin-top:50px;
 color:#22c55e;
 font-weight:bold;
 font-size:16px;
-letter-spacing:0.5px;
 ">
 +33 marcas já demonstraram interesse em trabalhar com creators
 </p>
 
 </div>
 </section>
-
-
-<script>
-const imagesByCategory = {
-  restaurant: ["restaurant1.jpg", "restaurant2.jpg"],
-  loja: ["loja1.jpg", "loja2.jpg"],
-  startup: ["startup1.jpg", "startup2.jpg"],
-  local: ["local1.jpg", "local2.jpg"],
-  lifestyle: ["lifestyle1.jpg", "lifestyle2.jpg"],
-  beauty: ["beauty1.jpg", "beauty2.jpg"]
-};
-
-function animateCard(card){
-
-  const img = card.querySelector("img");
-  const category = card.dataset.category;
-  const images = imagesByCategory[category];
-
-  setInterval(() => {
-
-    let current = img.getAttribute("src");
-
-    let next = images[Math.floor(Math.random() * images.length)];
-
-    if(next === current){
-      next = images[(images.indexOf(next)+1)%images.length];
-    }
-
-    img.classList.add("fade-out");
-
-    setTimeout(() => {
-      img.src = next;
-      img.classList.remove("fade-out");
-    }, 500);
-
-  }, 20000); // 20 segundos (leve + elegante)
-
-}
-
-// inicia imediatamente (sem depender de scroll)
-document.querySelectorAll(".brand-card").forEach(animateCard);
-</script>
 
 
 
@@ -1151,7 +1558,7 @@ font-size:14px;
 <section class="section" id="formSection">
 <div class="container">
 
-<h2>Garanta sua vaga</h2>
+<h2 id="garanta-vaga">Garanta sua vaga</h2>
 
 <!-- FORM -->
 <form id="form">
@@ -1361,8 +1768,7 @@ Enviar e receber link
 </section>
 
 
-<section style="max-width:900px;margin:60px auto;padding:40px;background:#0f172a;border-radius:12px;color:#e2e8f0;">
-
+<section id="seguranca" style="max-width:900px;margin:60px auto;padding:40px;background:#0f172a;border-radius:12px;color:#e2e8f0;">
   <h2 style="text-align:center;margin-bottom:30px;">
     Privacidade e utilização responsável dos dados
   </h2>
@@ -1438,7 +1844,7 @@ Enviar e receber link
 
 
 <!-- FAQ PROFISSIONAL -->
-<section class="section">
+<section id="faq" class="section">
 <div class="container">
 
 <h2 style="text-align:center;">Dúvidas frequentes</h2>
@@ -1570,15 +1976,14 @@ Tudo o que precisa saber antes de começar na Assinix.
 </div>
 </section>
 
-
-
-<!-- ================= EXIT MODAL SIMPLES ================= -->
+<!-- ================= EXIT MODAL CONTROLADO ================= -->
 <style>
 .exit-overlay{
   display:none;
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.7);
+  background:rgba(0,0,0,0.75);
+  backdrop-filter:blur(6px);
   z-index:999999;
   align-items:center;
   justify-content:center;
@@ -1586,25 +1991,27 @@ Tudo o que precisa saber antes de começar na Assinix.
 }
 
 .exit-box{
-  background:#0f172a;
-  width:min(600px,92%);
-  border-radius:14px;
-  padding:30px;
+  background:linear-gradient(180deg,#0f172a,#020617);
+  width:min(520px,92%);
+  border-radius:16px;
+  padding:35px 25px;
   text-align:center;
   border:1px solid rgba(255,255,255,0.08);
-  animation:fadeUp .2s ease;
+  box-shadow:0 20px 60px rgba(0,0,0,0.6);
+  animation:fadeUp .25s ease;
 }
 
 .exit-box h2{
   color:#fff;
-  margin-bottom:10px;
-  font-size:20px;
+  font-size:22px;
+  margin-bottom:12px;
 }
 
 .exit-box p{
   color:#94a3b8;
-  line-height:1.6;
-  margin-bottom:20px;
+  line-height:1.7;
+  font-size:14px;
+  margin-bottom:25px;
 }
 
 .exit-btn{
@@ -1612,48 +2019,49 @@ Tudo o que precisa saber antes de começar na Assinix.
   align-items:center;
   justify-content:center;
   gap:10px;
-  padding:12px 18px;
-  border-radius:10px;
+  padding:14px 20px;
+  border-radius:12px;
   background:#22c55e;
-  color:#0f172a;
+  color:#022c22;
   font-weight:bold;
   text-decoration:none;
+  transition:.2s;
 }
 
-.exit-btn img{
-  width:20px;
-  height:20px;
+.exit-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(34,197,94,0.4);
 }
 
 .exit-close{
-  margin-top:15px;
+  margin-top:18px;
   background:transparent;
   border:none;
-  color:#94a3b8;
+  color:#64748b;
   cursor:pointer;
   font-size:13px;
 }
 
 @keyframes fadeUp{
-  from{transform:translateY(10px);opacity:0;}
+  from{transform:translateY(15px);opacity:0;}
   to{transform:translateY(0);opacity:1;}
 }
 </style>
 
 <!-- MODAL -->
 <div id="exitModal" class="exit-overlay">
-
   <div class="exit-box">
 
-    <h2>👋 Antes de sair…</h2>
+    <h2>Antes de sair…</h2>
 
     <p>
-      Recomendamos que entres no nosso grupo VIP para receberes todas as atualizações, oportunidades e novidades em primeira mão.<br><br>
-      Depois, quando te sentires seguro, podes continuar a tua inscrição com calma.
+      Para não perderes oportunidades, campanhas e acesso antecipado,<br>
+      recomendamos entrares no grupo VIP.<br><br>
+      Podes voltar depois e completar a tua inscrição com calma.
     </p>
 
     <a href="https://chat.whatsapp.com/BgvS4xX8iwj6VkKmhQX5ss" target="_blank" class="exit-btn">
-      <img src="./whatsapp.png">
+      <img src="./whatsapp.png" style="width:20px">
       Entrar no grupo VIP
     </a>
 
@@ -1664,54 +2072,104 @@ Tudo o que precisa saber antes de começar na Assinix.
     </button>
 
   </div>
-
 </div>
 
 <script>
 let exitShown = false;
 
-/* MOSTRAR MODAL */
+/* =========================
+   MOSTRAR MODAL
+========================= */
 function showExitModal(){
   if(exitShown) return;
-
   exitShown = true;
-  document.getElementById("exitModal").style.display = "flex";
+
+  const modal = document.getElementById("exitModal");
+  if(modal){
+    modal.style.display = "flex";
+  }
 }
 
-/* FECHAR */
+/* =========================
+   FECHAR
+========================= */
 function closeExitModal(){
-  document.getElementById("exitModal").style.display = "none";
+  const modal = document.getElementById("exitModal");
+  if(modal){
+    modal.style.display = "none";
+  }
 }
 
-/* EXIT INTENT (PC) */
-document.addEventListener("mouseout", (e)=>{
-  if(!e.relatedTarget && e.clientY <= 0){
-    showExitModal();
-  }
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+window.addEventListener("load", () => {
+  history.pushState(null, "", location.href);
 });
 
-/* MOBILE (scroll leve) */
-window.addEventListener("scroll", ()=>{
-  if(window.scrollY > window.innerHeight * 1.5){
-    showExitModal();
+/* =========================
+   VOLTAR (CORRIGIDO)
+========================= */
+window.addEventListener("popstate", () => {
+
+  // 🔥 NÃO ativar modal se for navegação interna (#)
+  if(location.hash){
+    return;
   }
+
+  showExitModal();
+
+  // impede saída imediata
+  history.pushState(null, "", location.href);
 });
 
-/* ESC fecha */
+/* =========================
+   BACKSPACE (PC)
+========================= */
+document.addEventListener("keydown", (e) => {
+
+  const active = document.activeElement;
+  const isTyping =
+    active &&
+    (active.tagName === "INPUT" ||
+     active.tagName === "TEXTAREA" ||
+     active.isContentEditable);
+
+  if(e.key === "Backspace" && !isTyping){
+    e.preventDefault();
+    showExitModal();
+  }
+
+});
+
+/* =========================
+   ESC FECHA
+========================= */
 document.addEventListener("keydown", (e)=>{
   if(e.key === "Escape"){
     closeExitModal();
   }
 });
 
-/* não repetir */
+/* =========================
+   🔥 BLOQUEAR MODAL EM LINKS INTERNOS
+========================= */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener("click", () => {
+    exitShown = true;
+  });
+});
+
+/* =========================
+   SEGURANÇA EXTRA
+========================= */
 document.addEventListener("DOMContentLoaded", ()=>{
-  document.getElementById("exitModal").style.display = "none";
+  const modal = document.getElementById("exitModal");
+  if(modal){
+    modal.style.display = "none";
+  }
 });
 </script>
-
-
-
 
 
 
