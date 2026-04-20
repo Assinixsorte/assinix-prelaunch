@@ -2372,7 +2372,6 @@ function scrollToForm(){
     section.scrollIntoView({ behavior: "smooth" });
   }
 }
-
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
@@ -2385,12 +2384,71 @@ document.addEventListener("DOMContentLoaded", () => {
    INIT
 ========================= */
 
-emailjs.init("ZeGTJxCDd1FU6Z1C5"); // ✅ Public Key correta
+emailjs.init("ZeGTJxCDd1FU6Z1C5");
 
 const supabase = window.supabase.createClient(
   'https://nvpocsqsiryoipuduuob.supabase.co',
   'sb_publishable_gJkL3ziJYBOKj-rGfcHO5A_PfaHMSR-'
 );
+
+console.log("🚀 Supabase iniciado");
+
+/* =========================
+   VISITA ÚNICA (ROBUSTA)
+========================= */
+
+(async () => {
+  try {
+
+    const VISIT_KEY = "assinix_visit_v1_final";
+
+    console.log("📊 Verificando visita única...");
+
+    if (window.__visitAlreadySent) {
+      console.log("⚠ Script já executado nesta sessão");
+      return;
+    }
+
+    window.__visitAlreadySent = true;
+
+    const existing = localStorage.getItem(VISIT_KEY);
+
+    if (existing) {
+      console.log("⚠ Visita já registada neste navegador:", existing);
+      return;
+    }
+
+    const visitId = crypto.randomUUID ? crypto.randomUUID() : Date.now().toString();
+
+    console.log("🟡 Nova visita detectada:", visitId);
+
+    localStorage.setItem(VISIT_KEY, visitId);
+
+    const visitData = {
+      visit_id: visitId,
+      user_agent: navigator.userAgent,
+      created_at: new Date().toISOString()
+    };
+
+    console.log("📦 Enviando visita:", visitData);
+
+    const { data, error } = await supabase
+      .from("site_visits")
+      .insert([visitData])
+      .select();
+
+    if (error) {
+      console.error("❌ ERRO SUPABASE:", error);
+      localStorage.removeItem(VISIT_KEY);
+      window.__visitAlreadySent = false;
+    } else {
+      console.log("✅ VISITA REGISTADA COM SUCESSO:", data);
+    }
+
+  } catch (err) {
+    console.error("🔥 ERRO GERAL VISITA:", err);
+  }
+})();
 
 /* =========================
    ELEMENTOS
@@ -2409,6 +2467,7 @@ let currentUserEmail = localStorage.getItem("userEmail");
 
 if(form){
   form.addEventListener('submit', async (e)=>{
+
     e.preventDefault();
 
     const nome = form.nome.value.trim();
@@ -2454,28 +2513,21 @@ if(form){
       loading.style.display = 'none';
       form.style.display = 'block';
 
-      if(err.code === '23505' || err.message.includes('duplicate key')){
-        showModal("Este email já está na lista de espera. Nos vemos lá 👋");
-        return;
-      }
-
-      showModal('Erro ao enviar. Tente novamente.');
+      showModal('Erro ao enviar.');
     }
 
   });
 }
 
 /* =========================
-   MOSTRAR INPUT TELEFONE
+   TELEFONE
 ========================= */
 
 window.showPhoneInput = function(){
-
   const box = document.getElementById('phoneBox');
 
   if(box){
     box.style.display = 'block';
-
     box.scrollIntoView({ behavior: 'smooth' });
 
     setTimeout(()=>{
@@ -2483,137 +2535,92 @@ window.showPhoneInput = function(){
       if(input) input.focus();
     }, 300);
   }
-
 }
 
 /* =========================
-   CONTROLO BOTÃO + COOLDOWN
-========================= */
-
-let cooldownActive = false;
-let cooldownTime = 30;
-
-/* =========================
-   PHONE FLOW (ENVIA EMAIL)
+   PHONE FLOW
 ========================= */
 
 window.sendPhoneAndEmail = async function(){
 
-  if(cooldownActive) return;
-
-  const button = document.querySelector('#phoneBox button');
   const rawPhone = document.getElementById('phoneInput')?.value?.trim();
   const phoneMsg = document.getElementById('phoneMsg');
 
-  if(!phoneMsg){
-    showModal("Elemento phoneMsg não encontrado");
-    return;
-  }
-
   function formatMozPhone(phone){
     phone = phone.replace(/\s+/g, '');
-
-    if(phone.startsWith('+258')){
-      phone = phone.replace('+258','');
-    }
-
-    if(!/^8\d{8}$/.test(phone)){
-      return null;
-    }
-
+    if(phone.startsWith('+258')) phone = phone.replace('+258','');
+    if(!/^8\d{8}$/.test(phone)) return null;
     return '+258' + phone;
   }
 
-  const formattedPhone = formatMozPhone(rawPhone || "");
+  const phone = formatMozPhone(rawPhone || "");
 
-  if(!formattedPhone){
-    phoneMsg.textContent = "Número inválido. Use 845123456";
+  if(!phone){
+    phoneMsg.textContent = "Número inválido";
     return;
   }
 
-  const emailToUse = currentUserEmail || form?.email?.value;
-  const nomeToUse = form?.nome?.value;
+  const email = currentUserEmail || form?.email?.value;
+  const nome = form?.nome?.value;
 
-  if(!emailToUse || !nomeToUse){
+  if(!email){
     phoneMsg.textContent = "Preencha o formulário primeiro.";
     return;
   }
-
-  /* =========================
-     START COOLDOWN
-  ========================= */
-
-  cooldownActive = true;
-  let timeLeft = cooldownTime;
-
-  if(button){
-    button.disabled = true;
-  }
-
-  const interval = setInterval(()=>{
-    if(button){
-      button.textContent = `Aguarde (${timeLeft}s)`;
-    }
-    timeLeft--;
-
-    if(timeLeft < 0){
-      clearInterval(interval);
-      cooldownActive = false;
-
-      if(button){
-        button.disabled = false;
-        button.textContent = "Enviar e receber link";
-      }
-    }
-  }, 1000);
 
   phoneMsg.textContent = "Processando...";
 
   try{
 
+    console.log("📦 Atualizando telefone:", phone);
+
+    const { error: updateError } = await supabase
+      .from("usuarios")
+      .update({ phone })
+      .eq("email", email);
+
+    if(updateError){
+      console.error("❌ Erro telefone:", updateError);
+    } else {
+      console.log("✅ Telefone salvo");
+    }
+
     await emailjs.send("service_j1qc843", "template_6n96dck", {
-      nome: nomeToUse,
-      email: emailToUse
+      nome,
+      email
     });
 
-    phoneMsg.innerHTML = `
-      ✔ O link foi enviado para:<br><br>
-      <strong>${emailToUse}</strong>
-    `;
+    phoneMsg.innerHTML = `✔ Enviado para: <strong>${email}</strong>`;
 
   }catch(err){
     console.error(err);
-    phoneMsg.textContent = "Erro ao enviar email.";
+    phoneMsg.textContent = "Erro ao enviar.";
   }
 
 }
 
-});
-</script>
+/* =========================
+   REVEAL ANIMATION (FIXED)
+========================= */
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+const reveals = document.querySelectorAll(".reveal");
 
-  const reveals = document.querySelectorAll(".reveal");
+function revealOnScroll(){
+  const windowHeight = window.innerHeight;
 
-  function revealOnScroll(){
-    const windowHeight = window.innerHeight;
+  reveals.forEach(el => {
+    const top = el.getBoundingClientRect().top;
 
-    reveals.forEach(el => {
-      const elementTop = el.getBoundingClientRect().top;
+    if(top < windowHeight - 100){
+      el.classList.add("active");
+    }
+  });
+}
 
-      if(elementTop < windowHeight - 100){
-        el.classList.add("active");
-      }
-    });
-  }
-
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
 
 });
-
-
 </script>
 </body>
 </html>
